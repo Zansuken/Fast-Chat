@@ -5,10 +5,10 @@
 
 /* Global positioning */
 
+
 body {
     margin: 0;
     padding: 0;
-    width: 100vw;
     height: 100vh;
     background-color: rgba(12, 12, 12, 0.863);
     color: white;
@@ -234,6 +234,7 @@ main li {
     margin-bottom: 1em;
     padding: 1em;
     border-radius: 1em;
+    width: fit-content;
 }
 
 .chat_input {
@@ -256,18 +257,17 @@ main li {
     color: white;
     font-size: 0.8em;
     font-weight: normal;
+    font-family: 'Open Sans', sans-serif;
     padding: 1em;
     margin-left: 5px;
     overflow-wrap: break-word;
     border: none;
-}
-
-#text_input:focus-visible {
-    border: none;
+    resize: none;
 }
 
 #text_input:focus, #text_input:focus-visible {
-    border: 4px solid #FF1010;
+    border: 2px solid #FF1010;
+    outline: none;
 }
 
 .chat_input input {
@@ -277,12 +277,13 @@ main li {
     border-radius: 1em;
     border: none;
     background-color: #FF1010;
-    color: rgba(58, 58, 58, 0.788);
+    color: black;
     font-family: 'Open Sans', sans-serif;
     font-size: 1.2em;
     font-weight: 800;
     margin: 0.5em;
     cursor: pointer;
+    text-transform: uppercase;
 }
 
 .chat_input input:hover {
