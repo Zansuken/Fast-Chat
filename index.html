@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="800pxmax.css">
     <title>Fast Talk | Main Page</title>
 </head>
 
@@ -14,18 +15,22 @@
     <header>
         <img src="./Images/Fast_Chat_logo__1_-removebg-preview.png" alt="Logo">
         <div class="profile_section">
-            <span class="nickname">Zansuken</span>
             <div class="profile_img"></div>
+            <span class="nickname">Zansuken</span>
             <input type="button" value="">
         </div>
     </header>
 
     <div class="separation_line"></div>
+    <div id="nav_btn">
+        <h1>Contacts</h1>
+        <div class="corner_img"></div>
+    </div>
 
-    <nav>
+    <nav id="contact_panel">
+
         <div class="nav_border"></div>
         <div class="nav_content">
-            <h1>Contacts</h1>
             <ul>
                 <li>
                     <div id="contact_img1"></div>Lorem ispum
@@ -43,6 +48,10 @@
                     <div id="contact_img5"></div>Lorem ispum
                 </li>
             </ul>
+            <div id="nav_btn--close">
+                <h1>Contacts</h1>
+                <div class="corner_img"></div>
+            </div>
         </div>
     </nav>
 
@@ -61,12 +70,13 @@
             </ul>
         </div>
         <div class="chat_input">
-            <input type="text" name="chat" id="text_input">
+            <textarea name="" id="text_input" cols="30" rows="10"></textarea>
             <input type="button" value="Send">
         </div>
     </main>
 
     <script src="./index.js"></script>
+    <script src="./JavaScript/side-panel.js"></script>
 </body>
 
 </html>
