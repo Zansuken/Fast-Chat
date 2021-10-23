@@ -1,0 +1,223 @@
+/* Fonts */
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+/* Call with: font-family: 'Open Sans', sans-serif; */
+
+/* Global positioning */
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(12, 12, 12, 0.863);
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    background-image: url(./Images/background_corners.png);
+    background-repeat: no-repeat;
+    background-size: 12em 12em;
+    background-position: bottom 1em right 1em;
+    background-attachment: fixed;
+}
+
+header {
+    width: 100%;
+    height: 15vh;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    /* border: 3px inset red; */
+}
+
+nav {
+    width: 18vw;
+    height: 100vh;
+    /* border: 3px inset red; */
+    position: absolute;
+    top: 16vh;
+    /* transform: translateX(-150%); */
+}
+
+.nav_border {
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to bottom right, #FF1010, #5AFD3E);
+    z-index: 9;
+    position: absolute;
+    padding-right: 1.25em;
+    padding-left: 1em;
+    border-top-right-radius: 1em;
+}
+
+.nav_content {
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    z-index: 9;
+    position: absolute;
+    margin: 2px;
+    padding-right: 1em;
+    padding-left: 1em;
+    border-top-right-radius: 1em;
+}
+
+.separation_line {
+    width: 60vw;
+    height: 1px;
+    background-color: white;
+    position: fixed;
+    top: 15vh;
+    left: 20vw;
+    z-index: 10;
+}
+
+main {
+    width: 50vw;
+    height: 80vh;
+    /* border: 3px inset red; */
+    position: relative;
+    top: 15vh;
+    margin: 8vh auto 0 auto;
+    border-left: 1px solid white;
+    border-right: 1px solid white;
+}
+
+li {
+    list-style: none;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+/* Header */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    background-color: #2D2D2D;
+}
+
+header img {
+    height: 15vh;
+    margin-left: 1.5em;
+    cursor: pointer;
+}
+
+.profile_section {
+    display: flex;
+    justify-content: space-around;
+    height: 100%;
+    width: 15vw;
+    align-items: center;
+    margin-right: 1.5em;
+}
+
+.nickname {
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.profile_img {
+    content: url(./Images/Profile\ picture3.jpg);
+    width: 3em;
+    height: 3em;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.profile_section input {
+    width: 1.5em;
+    height: 1.5em;
+    appearance: none;
+    border: none;
+    background-color: transparent;
+    background-image: url(./Images/exit.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: invert(100%);
+    cursor: pointer;
+    margin-left: 1em;
+}
+
+main {
+    padding: 2em;
+}
+
+main li {
+    background-color: rgba(58, 58, 58, 0.788);
+    margin-bottom: 1em;
+    padding: 1em;
+    border-radius: 1em;
+}
+
+.chat_input {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 1em;
+}
+
+#text_input {
+    width: 80%;
+    height: 7vh;
+    background-color: rgba(58, 58, 58, 0.788);
+    border-radius: 1em;
+    color: white;
+    font-size: 0.8em;
+    font-weight: normal;
+    padding-left: 1em;
+}
+
+.chat_input input {
+    width: 15%;
+    height: 7vh;
+    border-radius: 1em;
+    border: none;
+    background-color: #FF1010;
+    color: rgba(58, 58, 58, 0.788);
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+nav li {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    margin-right: 2em;
+    /* margin-left: 1em; */
+    margin-bottom: 1em;
+    padding: 1em 0;
+    font-size: 0.9em;
+    background-color: rgb(58, 58, 58);
+    border-radius: 1em;
+    cursor: pointer;
+}
+
+nav ul div {
+    width: 3em;
+    height: 3em;
+    border-radius: 50%;
+}
+
+#contact_img1 {
+    content: url(./Images/random-avatar/avatar1.jfif);
+}
+
+#contact_img2 {
+    content: url(./Images/random-avatar/avatar2.jfif);
+}
+
+#contact_img3 {
+    content: url(./Images/random-avatar/avatar3.jfif);
+}
+
+#contact_img4 {
+    content: url(./Images/random-avatar/avatar4.jfif);
+}
+
+#contact_img5 {
+    content: url(./Images/random-avatar/avatar5.jfif);
+}
