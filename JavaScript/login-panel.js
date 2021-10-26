@@ -6,7 +6,7 @@ const logOutBtn = document.querySelector("#log_out_button");
 let userNotConnected = true;
 
 let userIdsTest = [
-    login = "Zansuken",
+    login = "test123",
     password = "test123"
 ]
 
