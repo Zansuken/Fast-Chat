@@ -20,7 +20,7 @@
     }
 
     .profile_section {
-        min-width: 5em;
+        min-width: min-content;
     }
 
     .chat_input {
