@@ -39,4 +39,8 @@
         margin: 0;
         padding: 0;
     }
+
+    #nickname {
+        display: none;
+    }
 }

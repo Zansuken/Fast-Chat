@@ -9,5 +9,6 @@ sendBtn.addEventListener("click", function addMessage() {
         chatLine.textContent = textArea.value
         chatFlow.appendChild(chatLine)
         textArea.value = ""
+        textArea.focus();
     }
 })

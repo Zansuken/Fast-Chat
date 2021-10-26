@@ -25,6 +25,7 @@ connectBtn.addEventListener("click", function connectingTest() {
         document.querySelector("#profile_img").style.display = "block";
         document.querySelector("#nav_btn").style.display = "flex";
         logOutBtn.style.display = "block";
+        document.querySelector("#text_input").focus();
         userNotConnected = false;
     } else {
         alert("Wrong Username or password!");
@@ -42,6 +43,7 @@ logOutBtn.addEventListener("click", function clickToLogOut() {
         document.querySelector("#profile_img").style.display = "none";
         document.querySelector("#nav_btn").style.display = "none";
         logOutBtn.style.display = "none";
+        document.querySelector("#username_field").focus();
     }
 })
 
