@@ -150,6 +150,83 @@ nav h1 {
     z-index: 10;
 }
 
+/* Login and register design */
+
+#login_section {
+    display: flex;
+    position: fixed;
+    background: black;
+    width: 50vw;
+    min-width: 300px;
+    height: 60vh;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    border-radius: 1em;
+    border: 2px solid white;
+    z-index: 20;
+    align-items: center;
+}
+
+#login_section form {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+#login_section input {
+    appearance: none;
+    border: none;
+    background-color: rgba(58, 58, 58, 0.788);
+    border: 1px solid white;
+    border-radius: 1em;
+    color: white;
+    font-size: 0.8em;
+    font-weight: normal;
+    font-family: 'Open Sans', sans-serif;
+    margin-bottom: 1em;
+    height: 2em;
+    padding-left: 1em;
+}
+
+#login_section input:focus {
+    border: 2px solid #FF1010;
+    outline: none;
+}
+
+#connect_button {
+    background: #FF1010;
+    color: black;
+    border: none;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1em;
+    font-weight: 800;
+    cursor: pointer;
+    width: min-content;
+    text-align: left;
+    padding: 0 0.5em;
+}
+
+#connect_button:hover, #connect_button:focus {
+    box-shadow: inset 0px 0px 2px 3px rgba(0,0,0,0.69);
+}
+
+#login_section span {
+    font-size: 0.8em;
+    font-weight: bold;
+    text-decoration: underline white;
+    cursor: pointer;
+}
+
+#unregistered:hover {
+    color: #FF1010;
+    text-decoration: underline #FF1010;
+    transition: 00.3s ease;
+}
+
 main {
     max-width: 50vw;
     height: 80vh;
@@ -157,9 +234,10 @@ main {
     position: relative;
     top: 15vh;
     margin: 8vh auto 0 auto;
-    border-left: 1px solid white;
-    border-right: 1px solid white;
+    border: 1px solid white;
+    border-radius: 0.5em;
     transition: ease 0.7s;
+    box-shadow: 0px 0px 15px 0px #000000;
 }
 
 li {
@@ -177,6 +255,7 @@ header {
     display: flex;
     justify-content: space-between;
     background-color: #2D2D2D;align-items: center;
+    box-shadow: 0px 0px 15px 0px #000000;
 }
 
 header img {
@@ -194,6 +273,7 @@ header img {
     align-items: center;
     margin-right: 1.5em;
     border-radius: 1em;
+    border: 2px solid white;
     background-color: black;
     transition: ease 0.7s;
     padding-right: 0.4em;
@@ -258,6 +338,8 @@ main li {
     border-radius: 1em;
     padding: 0.2em;
     align-items: center;
+    border: 2px solid white;
+
 }
 
 #text_input {

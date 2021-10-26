@@ -21,7 +21,7 @@
         </div>
     </header>
 
-    <div class="separation_line"></div>
+    <!-- <div class="separation_line"></div> -->
     <div id="nav_btn">
         <h1>Contacts</h1>
         <div class="corner_img"></div>
@@ -55,6 +55,19 @@
         </div>
     </nav>
 
+    <div id="login_section">
+        <form action="">
+            <h1>Login to talk...</h1>
+            <div class="login_flex"></div>
+            <input type="text" name="username" id="username_field" placeholder="Username" minlength="5" maxlength="20"
+                autofocus>
+            <input type="password" name="password" id="password_field" placeholder="Password" minlength="5"
+                maxlength="20">
+            <input type="button" value="CONNECT" id="connect_button">
+            <span id="unregistered">Not registered yet? Follow me.</span>
+        </form>
+    </div>
+
     <main>
         <div class="chat_section">
             <ul id="chat_flow">
@@ -71,6 +84,7 @@
     <script src="./index.js"></script>
     <script src="./JavaScript/side-panel.js"></script>
     <script src="./JavaScript/chat-box.js"></script>
+    <script src="./JavaScript/login-panel.js"></script>
 </body>
 
 </html>
