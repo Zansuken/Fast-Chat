@@ -152,13 +152,13 @@ nav h1 {
 
 /* Login and register design */
 
-#login_section {
+#login_section, #register_section {
     display: flex;
     position: fixed;
     background: black;
-    width: 50vw;
+    width: 30vw;
     min-width: 300px;
-    height: 60vh;
+    height: 30vh;
     transform: translate(-50%, -50%);
     left: 50%;
     top: 50%;
@@ -168,7 +168,15 @@ nav h1 {
     align-items: center;
 }
 
-#login_section form {
+#login_section h1, #register_section h1 {
+    margin-top: 0;
+}
+
+#register_section {
+    display: none;
+}
+
+#login_section form, #register_section form {
     display: flex;
     flex-direction: column;
     position: relative;
@@ -177,7 +185,7 @@ nav h1 {
     width: 50%;
 }
 
-#login_section input {
+#login_section input, #register_section input {
     appearance: none;
     border: none;
     background-color: rgba(58, 58, 58, 0.788);
@@ -192,12 +200,12 @@ nav h1 {
     padding-left: 1em;
 }
 
-#login_section input:focus {
+#login_section input:focus, #register_section input:focus {
     border: 2px solid #FF1010;
     outline: none;
 }
 
-#connect_button {
+#login_section #connect_button, #register_section #register_button {
     background: #FF1010;
     color: black;
     border: none;
@@ -214,14 +222,14 @@ nav h1 {
     box-shadow: inset 0px 0px 2px 3px rgba(0,0,0,0.69);
 }
 
-#login_section span {
+#login_section span, #login_link {
     font-size: 0.8em;
     font-weight: bold;
     text-decoration: underline white;
     cursor: pointer;
 }
 
-#unregistered:hover {
+#unregistered:hover, #login_link:hover {
     color: #FF1010;
     text-decoration: underline #FF1010;
     transition: 00.3s ease;
@@ -357,6 +365,7 @@ main li {
     word-break: break-all;
     border: none;
     resize: none;
+    text-transform: none;
 }
 
 #text_input_area {

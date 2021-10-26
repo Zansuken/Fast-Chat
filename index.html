@@ -31,7 +31,7 @@
 
         <div class="nav_border"></div>
         <div class="nav_content">
-            <ul>
+            <ul id="contact_list">
                 <li>
                     <div id="contact_img1"></div>Lorem ispum
                 </li>
@@ -68,7 +68,22 @@
         </form>
     </div>
 
-    <main>
+    <div id="register_section">
+        <form action="">
+            <h1>Register</h1>
+            <div class="login_flex"></div>
+            <input type="text" name="username" id="register_username_field" placeholder="Username" minlength="5"
+                maxlength="20" autofocus>
+            <input type="password" name="password" id="register_password_field" placeholder="Password" minlength="5"
+                maxlength="20">
+            <input type="password" name="password" id="retype_password" placeholder="Retype password" minlength="5"
+                maxlength="20">
+            <input type="button" value="REGISTER" id="register_button">
+            <span id="login_link">Already registered? Follow me.</span>
+        </form>
+    </div>
+
+    <main id="main">
         <div class="chat_section">
             <ul id="chat_flow">
 
