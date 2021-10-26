@@ -31,7 +31,7 @@ header {
 
 #nav_btn {
     border: 2px solid white;
-    display: flex;
+    display: none;
     justify-content: space-around;
     position: fixed;
     align-items: center;
@@ -108,7 +108,7 @@ nav {
 
 #nav_btn--close {
     border: 2px solid white;
-    position: absolute;
+    position: relative;
     width: 18vw;
     min-width: 90%;
     height: 3em;
@@ -118,8 +118,9 @@ nav {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    margin-bottom: 2.5em;
-    bottom: 0;
+    margin-bottom: 1.5em;
+    margin-left: auto;
+    margin-right: auto;
     transition: ease 0.7s;
     background: black;
 }
@@ -158,7 +159,7 @@ nav h1 {
     background: black;
     width: 30vw;
     min-width: 300px;
-    height: 30vh;
+    height: min-content;
     transform: translate(-50%, -50%);
     left: 50%;
     top: 50%;
@@ -166,6 +167,7 @@ nav h1 {
     border: 2px solid white;
     z-index: 20;
     align-items: center;
+    padding-bottom: 1em;
 }
 
 #login_section h1, #register_section h1 {
@@ -248,6 +250,10 @@ main {
     box-shadow: 0px 0px 15px 0px #000000;
 }
 
+#main {
+    display: none;
+}
+
 li {
     list-style: none;
 }
@@ -288,13 +294,13 @@ header img {
     padding-left: 0.4em;
 }
 
-.nickname {
+#nickname {
     cursor: pointer;
     font-weight: bold;
     font-size: 1em;
 }
 
-.profile_img {
+#profile_img {
     content: url(./Images/Profile\ picture3.jpg);
     width: 3em;
     height: 3em;
@@ -302,7 +308,7 @@ header img {
     cursor: pointer;
 }
 
-.profile_img:hover {
+#profile_img:hover {
     border: 4px solid #FF1010;
 }
 
