@@ -365,7 +365,7 @@ main ul img {
     margin-left: 1em;
 }
 
-.profile_section input:hover, #log_in_button:hover, #nickname:hover {
+.profile_section input:hover, #log_in_button:hover, #nickname:hover, #log_out_button:hover {
     filter: invert(44%) sepia(87%) saturate(7143%) hue-rotate(350deg) brightness(96%) contrast(111%);
 }
 
@@ -374,8 +374,7 @@ main {
 }
 
 main ul {
-    transform: translateY(-50px);
-    
+    padding-bottom: 100px;
 }
 
 main li {
@@ -411,7 +410,8 @@ main span {
 
 .chat_separation {
     width: 60vw;
-    height: 20vh;
+    max-height: 20vh;
+    min-height: 10vh;
     background-color: #2D2D2D;
     position: sticky;
     bottom: 0;
@@ -485,6 +485,10 @@ main span {
     margin: 0.5em;
     cursor: text;
     text-transform: uppercase;
+}
+
+#send_button {
+    cursor: pointer;
 }
 
 .chat_input input:hover {
