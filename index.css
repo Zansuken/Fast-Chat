@@ -18,6 +18,7 @@ body {
     background-size: 12em 12em;
     background-position: bottom 1em right 1em;
     background-attachment: fixed;
+    overflow-y: hidden;
 }
 
 header {
@@ -251,13 +252,15 @@ main {
     max-width: 50vw;
     height: 80vh;
     /* border: 3px inset red; */
-    position: relative;
+    position: static;
     top: 15vh;
-    margin: 8vh auto 0 auto;
+    margin: 20vh auto 0 auto;
     border: 1px solid white;
     border-radius: 0.5em;
+    border-top-right-radius: 0px;
     transition: ease 0.7s;
     box-shadow: 0px 0px 15px 0px #000000;
+    overflow-y: scroll;
 }
 
 #main {
@@ -271,7 +274,6 @@ li {
 ul {
     margin: 0;
     padding: 0;
-    overflow: hidden;
 }
 
 /* Header */
@@ -279,7 +281,8 @@ ul {
 header {
     display: flex;
     justify-content: space-between;
-    background-color: #2D2D2D;align-items: center;
+    background-color: #2D2D2D;
+    align-items: center;
     box-shadow: 0px 0px 15px 0px #000000;
 }
 
@@ -292,7 +295,7 @@ header img {
 .profile_section {
     display: flex;
     justify-content: space-around;
-    height: 60%;
+    height: fit-content;
     width: 15vw;
     min-width: 185px;
     align-items: center;
@@ -301,8 +304,7 @@ header img {
     border: 2px solid white;
     background-color: black;
     transition: ease 0.7s;
-    padding-right: 0.4em;
-    padding-left: 0.4em;
+    padding: 0.4em;
 }
 
 #nickname {
@@ -345,20 +347,41 @@ main {
     padding: 2em;
 }
 
+main ul {
+    transform: translateY(-50px);
+    
+}
+
 main li {
     background-color: rgba(58, 58, 58, 0.788);
     margin-bottom: 1em;
     padding: 1em;
     border-radius: 1em;
-    width: fit-content;
+    max-width: fit-content;
+    word-wrap: break-word;
+
+}
+
+.flow_input_separation {
+    width: 100%;
+}
+
+.chat_separation {
+    width: 60vw;
+    height: 20vh;
+    background-color: #2D2D2D;
+    position: sticky;
+    bottom: 0;
+    margin-left: 0;
+    margin-right: auto;
 }
 
 .chat_input {
     display: flex;
     justify-content: space-between;
     position: fixed;
-    min-width: 50vw;
-    bottom: 3em;
+    min-width: auto;
+    bottom: 1em;
     background-color: black;
     border-radius: 1em;
     padding: 0.2em;
@@ -464,4 +487,18 @@ nav ul div {
 
 #contact_img5 {
     content: url(./Images/random-avatar/avatar5.jfif);
+}
+
+body::-webkit-scrollbar, main::-webkit-scrollbar {
+    width: 0.7em;
+    background-color: black;
+}
+
+body::-webkit-scrollbar-track-piece, main::-webkit-scrollbar-track-piece {
+    height: 15vh;
+}
+
+body::-webkit-scrollbar-thumb, main::-webkit-scrollbar-thumb {
+    width: 0.7em;
+    background-color: rgb(58, 58, 58);
 }
