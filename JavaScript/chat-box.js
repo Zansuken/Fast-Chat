@@ -7,6 +7,7 @@ function updateScroll() {
     scrollUpdating.scrollTop = scrollUpdating.scrollHeight;
 }
 
+
 sendBtn.addEventListener("click", function addMessage() {
     if (textArea.value != "") {
         const chatLine = document.createElement("li")

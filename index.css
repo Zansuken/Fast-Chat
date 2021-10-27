@@ -261,6 +261,7 @@ main {
     transition: ease 0.7s;
     box-shadow: 0px 0px 15px 0px #000000;
     overflow-y: scroll;
+    background: #2D2D2D;
 }
 
 #main {
@@ -274,6 +275,7 @@ li {
 ul {
     margin: 0;
     padding: 0;
+    overflow-y: hidden;
 }
 
 /* Header */
@@ -296,7 +298,7 @@ header img {
     display: flex;
     justify-content: space-around;
     height: fit-content;
-    width: 15vw;
+    max-width: fit-content;
     min-width: 185px;
     align-items: center;
     margin-right: 1.5em;
@@ -339,7 +341,21 @@ header img {
     margin-left: 1em;
 }
 
-.profile_section input:hover {
+#log_in_button {
+    width: 1.8em;
+    height: 1.8em;
+    appearance: none;
+    border: none;
+    background-color: transparent;
+    background-image: url(./Images/switch.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: invert(100%);
+    cursor: pointer;
+    margin-left: 1em;
+}
+
+.profile_section input:hover, #log_in_button:hover, #nickname:hover {
     filter: invert(44%) sepia(87%) saturate(7143%) hue-rotate(350deg) brightness(96%) contrast(111%);
 }
 
@@ -359,7 +375,7 @@ main li {
     border-radius: 1em;
     max-width: fit-content;
     word-wrap: break-word;
-
+    transition: ease 0.3s;
 }
 
 .flow_input_separation {
@@ -380,7 +396,8 @@ main li {
     display: flex;
     justify-content: space-between;
     position: fixed;
-    min-width: auto;
+    min-width: 50%;
+    max-width: 75%;
     bottom: 1em;
     background-color: black;
     border-radius: 1em;

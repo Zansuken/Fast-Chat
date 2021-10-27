@@ -25,6 +25,7 @@ connectBtn.addEventListener("click", function connectingTest() {
         document.querySelector("#profile_img").style.display = "block";
         document.querySelector("#nav_btn").style.display = "flex";
         logOutBtn.style.display = "block";
+        document.querySelector("#log_in_button").style.display = "none";
         document.querySelector("#text_input").focus();
         userNotConnected = false;
     } else {
@@ -39,10 +40,11 @@ logOutBtn.addEventListener("click", function clickToLogOut() {
         loginPanel.style.display = "block";
         document.querySelector("#main").style.display = "none";
         document.querySelector("#contact_list").style.display = "none";
-        document.querySelector("#nickname").innerHTML = "Log in";
+        document.querySelector("#nickname").innerHTML = "LOG IN";
         document.querySelector("#profile_img").style.display = "none";
         document.querySelector("#nav_btn").style.display = "none";
         logOutBtn.style.display = "none";
+        document.querySelector("#log_in_button").style.display = "block";
         document.querySelector("#username_field").focus();
     }
 })
@@ -62,6 +64,10 @@ if (userNotConnected === true) {
 // Log in event button
 
 document.querySelector("#nickname").addEventListener("click", function clickToLogIn() {
+    document.querySelector("#username_field").focus();
+})
+
+document.querySelector("#log_in_button").addEventListener("click", function clickToLogIn() {
     document.querySelector("#username_field").focus();
 })
 

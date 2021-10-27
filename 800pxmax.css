@@ -2,16 +2,25 @@
 
     main {
         min-width: 75%;
+        transition: ease 0.7s;
     }
-    
+
     h1, #nav_btn h1 {
         font-size: 1em;
     }
 
-    .nickname {
-        display: none;
+    #nickname {
+        display: none !important;
     }
 
+    #profile_section {
+        width: fit-content;
+    }
+
+    #log_in_button {
+        margin-left: auto;
+        margin-right: auto;
+    }
     nav {
         min-width: 200px;
     }
@@ -41,6 +50,7 @@
 
     .chat_input {
         margin-right: 1em;
+        width: 75%;
     }
 
     .chat_input input {
