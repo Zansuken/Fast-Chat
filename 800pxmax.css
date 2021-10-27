@@ -1,7 +1,4 @@
 @media only screen and (max-width: 800px) {
-    main {
-        margin-right: 0;
-    }
 
     h1, #nav_btn h1 {
         font-size: 1em;
@@ -17,6 +14,21 @@
 
     #nav_btn {
         min-width: 28%;
+    }
+
+    #nav_btn {
+        transform: translateX(-75%);
+        width: fit-content;
+    }
+    
+    #nav_btn:hover,  #nav_btn:active {
+        transform: translateX(0%);
+    }
+
+    #nav_btn img {
+        position: relative;
+        margin-left: auto;
+        margin-right: 5%;
     }
 
     .profile_section {

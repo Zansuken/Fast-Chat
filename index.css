@@ -35,7 +35,7 @@ header {
     justify-content: space-around;
     position: fixed;
     align-items: center;
-    width: 18vw;
+    width: 8vw;
     min-width: max-content;
     height: 3em;
     border-radius: 1em;
@@ -47,6 +47,16 @@ header {
     transition: ease 0.7s;
     z-index: 10;
     padding-bottom: 0.1em;
+}
+
+#nav_btn img {
+    filter: invert(100%);
+    z-index: 2;
+}
+
+#nav_btn img:hover {
+    filter: invert(44%) sepia(87%) saturate(7143%) hue-rotate(350deg) brightness(96%) contrast(111%);
+    transition: 00.7s ease;
 }
 
 #nav_btn--close h1, #nav_btn h1 {
@@ -261,6 +271,7 @@ li {
 ul {
     margin: 0;
     padding: 0;
+    overflow: hidden;
 }
 
 /* Header */

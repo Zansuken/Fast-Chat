@@ -55,6 +55,7 @@ if (userNotConnected === true) {
     logOutBtn.style.display = "none";
     document.querySelector("#profile_img").style.display = "none";
     document.querySelector("#nickname").innerHTML = "LOG IN";
+    document.querySelector("#nickname").style.display = "block";
     document.querySelector("#nav_btn").style.display = "none";
 }
 
