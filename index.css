@@ -315,12 +315,15 @@ header img {
     font-size: 1em;
 }
 
-#profile_img {
-    content: url(./Images/Profile\ picture3.jpg);
+#profile_img, main ul img {
     width: 3em;
     height: 3em;
     border-radius: 50%;
     cursor: pointer;
+}
+
+main ul img {
+    margin-right: 1em;
 }
 
 #profile_img:hover, #profile_img:focus {
@@ -375,12 +378,17 @@ main ul {
 main li {
     background-color: rgba(58, 58, 58, 0.788);
     margin-bottom: 1em;
-    padding: 1em;
+    padding: 0.5em 0.8em;
     border-radius: 1em;
     max-width: fit-content;
     word-wrap: break-word;
     transition: ease 0.3s;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
 }
+
+
 
 .flow_input_separation {
     width: 100%;

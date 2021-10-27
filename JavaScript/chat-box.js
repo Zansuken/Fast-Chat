@@ -12,7 +12,10 @@ function updateScroll() {
 sendBtn.addEventListener("click", function addMessage() {
     if (textArea.value != "") {
         const chatLine = document.createElement("li");
+        const chatImg = document.createElement("img");
+        chatImg.src = userImg.src;
         chatLine.textContent = (document.createElement("div").style.content = userImg.style.content) + textArea.value;
+        chatLine.append(chatImg);
         chatFlow.appendChild(chatLine);
         textArea.value = "";
         textArea.focus();
@@ -21,10 +24,5 @@ sendBtn.addEventListener("click", function addMessage() {
 })
 
 
-const chatImg = document.createElement("img")
 
-chatImg.src = "./Images/Profile\ picture3.jpg"
 
-console.dir(chatImg.src);
-console.dir(userImg);
-// document.createElement("div").style.content = userImg.style.content
