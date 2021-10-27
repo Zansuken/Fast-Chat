@@ -322,8 +322,15 @@ header img {
     cursor: pointer;
 }
 
+#profile_img {
+    margin-left: 0;
+}
+
+
 main ul img {
-    margin-right: 1em;
+    margin-right: 0.5em;
+    order: -1;
+    align-self: baseline;
 }
 
 #profile_img:hover, #profile_img:focus {
@@ -358,10 +365,6 @@ main ul img {
     margin-left: 1em;
 }
 
-#log_in_button {
-    display: none;
-}
-
 .profile_section input:hover, #log_in_button:hover, #nickname:hover {
     filter: invert(44%) sepia(87%) saturate(7143%) hue-rotate(350deg) brightness(96%) contrast(111%);
 }
@@ -380,14 +383,26 @@ main li {
     margin-bottom: 1em;
     padding: 0.5em 0.8em;
     border-radius: 1em;
-    max-width: fit-content;
+    max-width: max-content;
+    /* min-width: max-content; */
+    min-height: min-content;
     word-wrap: break-word;
+    word-break: break-all;
     transition: ease 0.3s;
     display: flex;
-    flex-direction: row-reverse;
+    /* flex-direction: row-reverse; */
     align-items: center;
+    max-inline-size: max-content;
 }
 
+main span {
+    font-size: 0.55em;
+    color: #FF1010;
+    position: relative;
+    margin-bottom: 4em;
+    margin-left: 1em;
+    min-width: fit-content;
+}
 
 
 .flow_input_separation {
@@ -468,7 +483,7 @@ main li {
     font-size: 1.2em;
     font-weight: 800;
     margin: 0.5em;
-    cursor: pointer;
+    cursor: text;
     text-transform: uppercase;
 }
 
