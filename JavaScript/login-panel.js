@@ -28,6 +28,7 @@ connectBtn.addEventListener("click", function connectingTest() {
         document.querySelector("#log_in_button").style.display = "none";
         document.querySelector("#text_input").focus();
         userNotConnected = false;
+        console.dir(connectingTest);
     } else {
         alert("Wrong Username or password!");
     }

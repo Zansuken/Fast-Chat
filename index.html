@@ -58,20 +58,20 @@
     </nav>
 
     <div id="login_section">
-        <form action="">
+        <form action="" id="login_form">
             <h1>Login to talk...</h1>
             <div class="login_flex"></div>
             <input type="text" name="username" id="username_field" placeholder="Username" minlength="5" maxlength="20"
                 autofocus onload="clickToLogIn()">
             <input type="password" name="password" id="password_field" placeholder="Password" minlength="5"
                 maxlength="20">
-            <input type="button" value="CONNECT" id="connect_button">
+            <input type="submit" form="login_form" value="CONNECT" id="connect_button">
             <span id="unregistered">Not registered yet? Follow me.</span>
         </form>
     </div>
 
     <div id="register_section">
-        <form action="">
+        <form action="" id="register_form">
             <h1>Register</h1>
             <div class="login_flex"></div>
             <input type="text" name="username" id="register_username_field" placeholder="Username" minlength="5"
@@ -80,7 +80,7 @@
                 maxlength="20">
             <input type="password" name="password" id="retype_password" placeholder="Retype password" minlength="5"
                 maxlength="20">
-            <input type="button" value="REGISTER" id="register_button">
+            <input type="submit" form="register_form" value="REGISTER" id="register_button">
             <span id="login_link">Already registered? Follow me.</span>
         </form>
     </div>
@@ -97,7 +97,7 @@
         <div class="chat_input">
             <form id="text_input_area" action="" autocomplete="off"><input id="text_input" type="text" name="">
             </form>
-            <input type="submit" value="Send" id="send_button" accesskey="p" formaction="">
+            <input type="submit" value="Send" id="send_button" form="text_input_area">
         </div>
     </main>
 
