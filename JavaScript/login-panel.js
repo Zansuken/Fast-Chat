@@ -13,7 +13,8 @@ let userIdsTest = [
 // Verifying ID's match
 
 const connectBtn = document.querySelector("#connect_button");
-connectBtn.addEventListener("click", function connectingTest() {
+function connectingTest() {
+
 
     if (document.querySelector("#username_field").value === userIdsTest[0] && document.querySelector("#password_field").value === userIdsTest[1]) {
         loginPanel.style.display = "none";
@@ -28,11 +29,10 @@ connectBtn.addEventListener("click", function connectingTest() {
         document.querySelector("#log_in_button").style.display = "none";
         document.querySelector("#text_input").focus();
         userNotConnected = false;
-        console.dir(connectingTest);
     } else {
         alert("Wrong Username or password!");
     }
-})
+}
 
 // Log out event button
 

@@ -9,7 +9,7 @@ function updateScroll() {
 }
 
 
-sendBtn.addEventListener("click", function addMessage() {
+function addMessage() {
     if (textArea.value != "") {
         const chatLine = document.createElement("li");
         chatLine.textContent = (document.createElement("div").style.content = userImg.style.content) + " : " + textArea.value;
@@ -35,4 +35,4 @@ sendBtn.addEventListener("click", function addMessage() {
         updateScroll();
         console.log(inputTime)
     }
-})
+}

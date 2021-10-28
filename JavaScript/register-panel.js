@@ -8,11 +8,11 @@ let password;
 let passwordCheck;
 
 
-registerBtn.addEventListener("click", function registerIds() {
+function registerIds() {
     username = usernameField.value;
     password = passwordField.value;
     passwordCheck = retypePasswordField.value;
     console.log(username);
     console.log(password);
     console.log(passwordCheck);
-})
+}
