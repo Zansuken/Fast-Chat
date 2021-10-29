@@ -12,9 +12,14 @@ const app = express();
 //     response.send("Hello");
 // })
 
+app.post("/auth/login", (request, response) => {
+    console.log(request.body);
+    response.send("Ok");
+})
+
 app.use(express.static("public"))
 
-app.listen(process.env.PORT, () => {
+app.listen(process.env.PORT || 3000, () => {
     console.log("Server started");
 });
 

@@ -5,71 +5,88 @@ const loginLink = document.querySelector("#login_link");
 const logOutBtn = document.querySelector("#log_out_button");
 let userNotConnected = true;
 
+const loginForm = document.querySelector("#login_form");
+const registerForm = document.querySelector("#register_form");
+const chatInput = document.querySelector("#text_input_area");
+const main = document.querySelector("#main");
+const contactList = document.querySelector("#contact_list");
+const usernameField = document.querySelector("#username_field");
+const passwordField = document.querySelector("#password_field");
+const connectBtn = document.querySelector("#connect_button");
+const nickname = document.querySelector("#nickname");
+const profileImg = document.querySelector("#profile_img");
+const navBtn = document.querySelector("#nav_btn");
+const logInBtn = document.querySelector("#log_in_button");
+
 let userIdsTest = [
-    login = "test123",
+    username = "test123",
     password = "test123"
 ]
 
+
 // Verifying ID's match
 
-const connectBtn = document.querySelector("#connect_button");
-function connectingTest() {
+function connectingTest(event) {
 
+    event.preventDefault();
 
-    if (document.querySelector("#username_field").value === userIdsTest[0] && document.querySelector("#password_field").value === userIdsTest[1]) {
+    if (usernameField.value === userIdsTest[0] && passwordField.value === userIdsTest[1]) {
         loginPanel.style.display = "none";
         registerPanel.style.display = "none";
-        document.querySelector("#main").style.display = "flex";
-        document.querySelector("#contact_list").style.display = "block";
-        document.querySelector("#password_field").value = "";
-        document.querySelector("#nickname").innerHTML = userIdsTest[0];
-        document.querySelector("#profile_img").style.display = "block";
-        document.querySelector("#nav_btn").style.display = "flex";
+        main.style.display = "flex";
+        contactList.style.display = "block";
+        passwordField.value = "";
+        nickname.innerHTML = userIdsTest[0];
+        profileImg.style.display = "block";
+        navBtn.style.display = "flex";
         logOutBtn.style.display = "block";
-        document.querySelector("#log_in_button").style.display = "none";
-        document.querySelector("#text_input").focus();
+        logInBtn.style.display = "none";
+        textInput.focus();
         userNotConnected = false;
     } else {
         alert("Wrong Username or password!");
     }
+    console.log("test form");
 }
+
+loginForm.addEventListener("submit", connectingTest);
 
 // Log out event button
 
 logOutBtn.addEventListener("click", function clickToLogOut() {
     if (userNotConnected === false) {
         loginPanel.style.display = "block";
-        document.querySelector("#main").style.display = "none";
-        document.querySelector("#contact_list").style.display = "none";
-        document.querySelector("#nickname").innerHTML = "LOG IN";
-        document.querySelector("#profile_img").style.display = "none";
-        document.querySelector("#nav_btn").style.display = "none";
+        main.style.display = "none";
+        contactList.style.display = "none";
+        nickname.innerHTML = "LOG IN";
+        profileImg.style.display = "none";
+        navBtn.style.display = "none";
         logOutBtn.style.display = "none";
-        document.querySelector("#log_in_button").style.display = "block";
-        document.querySelector("#username_field").focus();
+        logInBtn.style.display = "block";
+        usernameField.focus();
     }
 })
 
 // If user is not connected, chat box, profile section and contact list is not displayed
 
 if (userNotConnected === true) {
-    document.querySelector("#main").style.display = "none";
-    document.querySelector("#contact_list").style.display = "none";
+    main.style.display = "none";
+    contactList.style.display = "none";
     logOutBtn.style.display = "none";
-    document.querySelector("#profile_img").style.display = "none";
-    document.querySelector("#nickname").innerHTML = "LOG IN";
-    document.querySelector("#nickname").style.display = "block";
-    document.querySelector("#nav_btn").style.display = "none";
+    profileImg.style.display = "none";
+    nickname.innerHTML = "LOG IN";
+    nickname.style.display = "block";
+    navBtn.style.display = "none";
 }
 
 // Log in event button
 
-document.querySelector("#nickname").addEventListener("click", function clickToLogIn() {
-    document.querySelector("#username_field").focus();
+nickname.addEventListener("click", function clickToLogIn() {
+    usernameField.focus();
 })
 
-document.querySelector("#log_in_button").addEventListener("click", function clickToLogIn() {
-    document.querySelector("#username_field").focus();
+logInBtn.addEventListener("click", function clickToLogIn() {
+    usernameField.focus();
 })
 
 

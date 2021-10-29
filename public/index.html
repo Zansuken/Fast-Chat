@@ -58,7 +58,7 @@
     </nav>
 
     <div id="login_section">
-        <form action="" id="login_form" onsubmit="connectingTest();return false">
+        <form action="" id="login_form">
             <h1>Login to talk...</h1>
             <div class="login_flex"></div>
             <input type="text" name="username" id="username_field" placeholder="Username" minlength="5" maxlength="20"
@@ -71,7 +71,7 @@
     </div>
 
     <div id="register_section">
-        <form action="" id="register_form" onsubmit="registerIds();return false">
+        <form action="#" id="register_form">
             <h1>Register</h1>
             <div class="login_flex"></div>
             <input type="text" name="username" id="register_username_field" placeholder="Username" minlength="5"
@@ -95,8 +95,7 @@
             <div class="chat_separation"></div>
         </div>
         <div class="chat_input">
-            <form id="text_input_area" action="" autocomplete="off" onsubmit="addMessage();return false"><input
-                    id="text_input" type="text" name="">
+            <form id="text_input_area" action="" autocomplete="off"><input id="text_input" type="text" name="">
             </form>
             <input type="submit" value="Send" id="send_button" form="text_input_area">
         </div>
