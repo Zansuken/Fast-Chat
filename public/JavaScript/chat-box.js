@@ -7,12 +7,12 @@ const textInput = document.querySelector("#text_input_area");
 
 
 
-function updateScroll() {
+const updateScroll = () => {
     scrollUpdating.scrollTop = scrollUpdating.scrollHeight;
 }
 
 
-function addMessage(event) {
+const addMessage = (event) => {
 
     event.preventDefault();
 
@@ -41,10 +41,9 @@ function addMessage(event) {
         textArea.value = "";
         textArea.focus();
         updateScroll();
-        console.log(inputTime)
     }
 
-    console.log("chat test");
+    console.log(usernameField.value + " has sent a message!");
 }
 
 textInput.addEventListener("submit", addMessage);

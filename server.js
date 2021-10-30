@@ -1,12 +1,14 @@
 const { MongoClient } = require("mongodb");
 const dotenv = require("dotenv");
 const express = require("express");
+const { response, request } = require("express");
 
 dotenv.config({ path: ".env" });
 
 const database = new MongoClient(process.env.DATABASE_URL);
 
 const app = express();
+app.use(express.json())
 
 // app.get("/", (request, response) => {
 //     response.send("Hello");
@@ -19,10 +21,26 @@ app.post("/auth/login", (request, response) => {
 
 app.use(express.static("public"))
 
-app.listen(process.env.PORT || 3000, () => {
-    console.log("Server started");
-});
 
+
+app.post("/register", async (request, response) => {
+    console.log(request.body);
+    response.send("data collected")
+
+
+
+    const user = await database.db().collection("user").findOne({
+        username: request.body.username
+    })
+
+    if (user) return console.log("Username already taken!");
+
+    await database.db().collection("user").insertOne({
+        username: request.body.username,
+        password: request.body.password
+    })
+    console.log("User registered");
+})
 
 
 const run = async () => {
@@ -31,10 +49,9 @@ const run = async () => {
 
     // console.log("Server started");
 
-    // database.db().collection("user").insertOne({
-    //     username: "test123",
-    //     password: "test123"
-    // })
+
+
+
 
 
     // const users = await database.db().collection("user").find().toArray();
@@ -43,7 +60,10 @@ const run = async () => {
 
     // const deleteUser = await database.db().collection("user").findOneAndDelete({ username: "Ghostwake" });
 
+    app.listen(process.env.PORT || 3000, () => {
+        console.log("Server started");
+    });
 
 };
 
-// run();
+run();
