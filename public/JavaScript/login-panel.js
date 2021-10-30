@@ -23,6 +23,36 @@ let userIdsTest = [
     password = "test123"
 ]
 
+// Basic functions
+
+// Show login panel and hide everything else
+
+const hideLoginPanel = () => {
+    loginPanel.style.display = "none";
+    registerPanel.style.display = "none";
+    main.style.display = "flex";
+    contactList.style.display = "block";
+    passwordField.value = "";
+    nickname.innerHTML = userIdsTest[0];
+    profileImg.style.display = "block";
+    navBtn.style.display = "flex";
+    logOutBtn.style.display = "block";
+    logInBtn.style.display = "none";
+    textInput.focus();
+}
+
+const showLoginPanel = () => {
+    loginPanel.style.display = "block";
+    main.style.display = "none";
+    contactList.style.display = "none";
+    nickname.innerHTML = "LOG IN";
+    profileImg.style.display = "none";
+    navBtn.style.display = "none";
+    logOutBtn.style.display = "none";
+    logInBtn.style.display = "block";
+    usernameField.focus();
+}
+
 
 // Verifying ID's match
 
@@ -31,22 +61,12 @@ function connectingTest(event) {
     event.preventDefault();
 
     if (usernameField.value === userIdsTest[0] && passwordField.value === userIdsTest[1]) {
-        loginPanel.style.display = "none";
-        registerPanel.style.display = "none";
-        main.style.display = "flex";
-        contactList.style.display = "block";
-        passwordField.value = "";
-        nickname.innerHTML = userIdsTest[0];
-        profileImg.style.display = "block";
-        navBtn.style.display = "flex";
-        logOutBtn.style.display = "block";
-        logInBtn.style.display = "none";
-        textInput.focus();
+        hideLoginPanel();
         userNotConnected = false;
     } else {
         alert("Wrong Username or password!");
     }
-    console.log("test form");
+    console.log("User connected!");
 }
 
 loginForm.addEventListener("submit", connectingTest);
@@ -55,29 +75,15 @@ loginForm.addEventListener("submit", connectingTest);
 
 logOutBtn.addEventListener("click", function clickToLogOut() {
     if (userNotConnected === false) {
-        loginPanel.style.display = "block";
-        main.style.display = "none";
-        contactList.style.display = "none";
-        nickname.innerHTML = "LOG IN";
-        profileImg.style.display = "none";
-        navBtn.style.display = "none";
-        logOutBtn.style.display = "none";
-        logInBtn.style.display = "block";
-        usernameField.focus();
+
+        showLoginPanel();
+
+        userNotConnected = true;
+
+        console.log("User disconnected!");
     }
 })
 
-// If user is not connected, chat box, profile section and contact list is not displayed
-
-if (userNotConnected === true) {
-    main.style.display = "none";
-    contactList.style.display = "none";
-    logOutBtn.style.display = "none";
-    profileImg.style.display = "none";
-    nickname.innerHTML = "LOG IN";
-    nickname.style.display = "block";
-    navBtn.style.display = "none";
-}
 
 // Log in event button
 
