@@ -13,14 +13,10 @@ async function registerIds(event) {
 
     if (password != retypedPassword) return alert("Password does not match!")
 
-    console.log("username: " + username);
-    console.log("password: " + password);
-    console.log("retyped password: " + retypedPassword);
-
     const headers = new Headers();
     headers.set("Content-Type", "application/json");
 
-    await fetch("/register", {
+    const response = await fetch("/register", {
         body: JSON.stringify({
             username,
             password
@@ -29,7 +25,14 @@ async function registerIds(event) {
         headers
     })
 
+    // const data = await response.json()
+
+    console.log(response.status);
     console.log("User registered");
+
+    if (response.status === 400) return alert("Username already taken!")
+
+    alert("You are registered, you can now login and chat!")
 }
 
 registerForm.addEventListener("submit", registerIds);

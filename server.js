@@ -14,20 +14,7 @@ app.use(express.json())
 //     response.send("Hello");
 // })
 
-app.post("/auth/login", (request, response) => {
-    console.log(request.body);
-    response.send("Ok");
-})
-
-app.use(express.static("public"))
-
-
-
-app.post("/register", async (request, response) => {
-    console.log(request.body);
-    response.send("data collected")
-
-
+app.post("/auth/login", async (request, response) => {
 
     const user = await database.db().collection("user").findOne({
         username: request.body.username
@@ -35,11 +22,27 @@ app.post("/register", async (request, response) => {
 
     if (user) return console.log("Username already taken!");
 
+})
+
+app.use(express.static("public"))
+
+
+
+app.post("/register", async (request, response) => {
+
+    const user = await database.db().collection("user").findOne({
+        username: request.body.username
+    })
+
+    if (user) return response.sendStatus(400);
+
     await database.db().collection("user").insertOne({
         username: request.body.username,
         password: request.body.password
     })
-    console.log("User registered");
+
+    response.sendStatus(200)
+
 })
 
 
