@@ -25,6 +25,7 @@ let userIdsTest = [
 
 // Basic functions
 
+
 // Show login panel and hide everything else
 
 const hideLoginPanel = () => {
@@ -53,36 +54,66 @@ const showLoginPanel = () => {
     usernameField.focus();
 }
 
+window.onload = async () => {
+    const response = await fetch("/auth/already-logged")
+    if (await response.json()) {
+        hideLoginPanel()
+    } else {
+        showLoginPanel()
+    }
+
+}
 
 // Verifying ID's match
 
-function connectingTest(event) {
+async function connectingTest(event) {
 
     event.preventDefault();
 
-    if (usernameField.value === userIdsTest[0] && passwordField.value === userIdsTest[1]) {
-        hideLoginPanel();
-        userNotConnected = false;
-    } else {
-        alert("Wrong Username or password!");
-    }
-    console.log("User connected!");
+
+    const username = usernameField.value;
+    const password = passwordField.value;
+
+    console.log(username, password);
+
+    const headers = new Headers();
+    headers.set("Content-Type", "application/json");
+
+    const response = await fetch("/auth/login", {
+        body: JSON.stringify({
+            username,
+            password
+        }),
+        method: "POST",
+        headers
+    })
+
+
+    if (response.status === 400) return alert("Wrong Username or Password!")
+
+    hideLoginPanel()
+
 }
 
 loginForm.addEventListener("submit", connectingTest);
 
 // Log out event button
 
-logOutBtn.addEventListener("click", function clickToLogOut() {
-    if (userNotConnected === false) {
+async function logOut(event) {
 
-        showLoginPanel();
+    const response = await fetch("/auth/logout", {
+        method: "POST"
+    })
 
-        userNotConnected = true;
+    if (response.status === 400) return alert("Already disconnected!")
 
-        console.log("User disconnected!");
-    }
-})
+    showLoginPanel()
+
+
+
+}
+
+logOutBtn.addEventListener("click", logOut);
 
 
 // Log in event button

@@ -1,72 +1,102 @@
 const { MongoClient } = require("mongodb");
 const dotenv = require("dotenv");
 const express = require("express");
-const { response, request } = require("express");
+const session = require('express-session');
+const MongoStore = require('connect-mongo');
+
 
 dotenv.config({ path: ".env" });
 
 const database = new MongoClient(process.env.DATABASE_URL);
 
 const app = express();
-app.use(express.json())
 
-// app.get("/", (request, response) => {
-//     response.send("Hello");
-// })
-
-app.post("/auth/login", async (request, response) => {
-
-    const user = await database.db().collection("user").findOne({
-        username: request.body.username
-    })
-
-    if (user) return console.log("Username already taken!");
-
-})
-
-app.use(express.static("public"))
-
-
-
-app.post("/register", async (request, response) => {
-
-    const user = await database.db().collection("user").findOne({
-        username: request.body.username
-    })
-
-    if (user) return response.sendStatus(400);
-
-    await database.db().collection("user").insertOne({
-        username: request.body.username,
-        password: request.body.password
-    })
-
-    response.sendStatus(200)
-
-})
-
+app.set('trust proxy', 1)
 
 const run = async () => {
 
     await database.connect();
 
-    // console.log("Server started");
+    app.use(express.json())
+
+    app.use(session({
+        store: MongoStore.create({
+            // mongoUrl: process.env.DATABASE_URL,
+            ttl: 14 * 24 * 60 * 60,
+            client: database
+        }),
+        secret: "Supercryptage",
+        saveUninitialized: true,
+        resave: false,
+        cookie: {
+            maxAge: 14 * 24 * 60 * 60,
+            sameSite: true,
+        }
+
+    }));
+
+
+    app.post("/auth/login", async (request, response) => {
+
+        const user = await database.db().collection("user").findOne({
+            username: request.body.username,
+            password: request.body.password
+        })
+
+
+        if (!user) return response.sendStatus(400);
+
+        request.session.userId = user._id
+
+        response.sendStatus(200)
+    })
+
+
+    app.post("/auth/logout", async (request, response) => {
 
 
 
+        if (!request.session.userId) return response.sendStatus(400);
+
+        request.session.userId = null
+
+        response.sendStatus(200)
+    })
 
 
+    app.post("/register", async (request, response) => {
 
-    // const users = await database.db().collection("user").find().toArray();
+        const user = await database.db().collection("user").findOne({
+            username: request.body.username
+        })
 
-    // const updateUser = await database.db().collection("user").findOneAndUpdate({ username: "test123" }, { $set: { username: "Ghostwake" } });
+        if (user) return response.sendStatus(400);
 
-    // const deleteUser = await database.db().collection("user").findOneAndDelete({ username: "Ghostwake" });
+        await database.db().collection("user").insertOne({
+            username: request.body.username,
+            password: request.body.password
+        })
+
+        response.sendStatus(200)
+
+    })
+
+    app.get("/auth/already-logged", async (request, response) => {
+        response.json(Boolean(request.session.userId))
+    })
+
+    app.use(express.static("public"))
 
     app.listen(process.env.PORT || 3000, () => {
-        console.log("Server started");
     });
 
 };
 
 run();
+
+
+
+
+
+
+

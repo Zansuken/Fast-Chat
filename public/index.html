@@ -59,12 +59,12 @@
     </nav>
 
     <div id="login_section">
-        <form action="" id="login_form">
+        <form action="" id="login_form" method="POST">
             <h1>Login to talk...</h1>
             <div class="login_flex"></div>
-            <input type="text" name="username" id="username_field" placeholder="Username" minlength="5" maxlength="20"
-                autofocus onload="clickToLogIn()">
-            <input type="password" name="password" id="password_field" placeholder="Password" minlength="5"
+            <input type="text" name="login-username" id="username_field" placeholder="Username" minlength="5"
+                maxlength="20" autofocus onload="clickToLogIn()">
+            <input type="password" name="password-username" id="password_field" placeholder="Password" minlength="5"
                 maxlength="20">
             <input type="submit" form="login_form" value="CONNECT" id="connect_button">
             <span id="unregistered">Not registered yet? Follow me.</span>
