@@ -61,9 +61,8 @@
     <div id="login_section">
         <form action="" id="login_form" method="POST">
             <h1>Login to talk...</h1>
-            <div class="login_flex"></div>
             <input type="text" name="login-username" id="username_field" placeholder="Username" minlength="5"
-                maxlength="20" autofocus onload="clickToLogIn()">
+                maxlength="20" autofocus>
             <input type="password" name="password-username" id="password_field" placeholder="Password" minlength="5"
                 maxlength="20">
             <input type="submit" form="login_form" value="CONNECT" id="connect_button">
@@ -74,7 +73,6 @@
     <div id="register_section">
         <form action="#" id="register_form" method="POST">
             <h1>Register</h1>
-            <div class="login_flex"></div>
             <input type="text" name="username" id="register_username_field" placeholder="Username" minlength="5"
                 maxlength="20" autofocus>
             <input type="password" name="password" id="register_password_field" placeholder="Password" minlength="5"
@@ -102,11 +100,7 @@
         </div>
     </main>
 
-    <script src="./index.js"></script>
-    <script src="./JavaScript/side-panel.js"></script>
-    <script src="./JavaScript/chat-box.js"></script>
-    <script src="./JavaScript/login-panel.js"></script>
-    <script src="./JavaScript/register-panel.js"></script>
+    <script src="./JavaScript/index.js" type="module"></script>
 </body>
 
 </html>
