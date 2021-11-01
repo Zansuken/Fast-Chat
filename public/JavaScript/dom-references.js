@@ -16,6 +16,9 @@ export const profileImg = document.querySelector("#profile_img");
 export const navBtn = document.querySelector("#nav_btn");
 export const logInBtn = document.querySelector("#log_in_button");
 
+
+export const registeringNicknameField = document.querySelector("#register_username_field");
+export const registerPasswordField = document.querySelector("#register_password_field");
 export const retypePasswordField = document.querySelector("#retype_password");
 export const registerBtn = document.querySelector("#register_button");
 

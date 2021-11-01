@@ -1,36 +1,27 @@
-import { hideContactBtn, logInBtn, loginForm, loginLink, loginPanel, logOutBtn, mainBox, nickname, registerLink, registerPanel, showContactBtn, textBox, textInput, usernameField } from "./dom-references.js";
-import { login, logout } from "./event-handlers.js";
-import { addMessage, moveNavToLeft, moveNavToRight } from "./interface-handlers.js";
+import { hideContactBtn, logInBtn, loginForm, loginLink, loginPanel, logOutBtn, mainBox, nickname, registerBtn, registerLink, registerPanel, showContactBtn, textBox, textInput, usernameField } from "./dom-references.js";
+import { login, logout, register } from "./event-handlers.js";
+import { addMessage, moveNavToLeft, moveNavToRight, redirectToLogin, redirectToRegister, usernameFocus } from "./interface-handlers.js";
 
 export const joinListener = () => {
     loginForm.addEventListener("submit", login);
     logOutBtn.addEventListener("click", logout);
+    registerBtn.addEventListener("click", register);
 
-    nickname.addEventListener("click", function clickToLogIn() {
-        usernameField.focus();
-    })
+    nickname.addEventListener("click", usernameFocus);
 
-    logInBtn.addEventListener("click", function clickToLogIn() {
-        usernameField.focus();
-    })
+    logInBtn.addEventListener("click", usernameFocus);
 
-    registerLink.addEventListener("click", function showRegisterForm() {
-        loginPanel.style.display = "none";
-        registerPanel.style.display = "flex";
-    })
+    registerLink.addEventListener("click", redirectToRegister);
 
-    loginLink.addEventListener("click", function showRegisterForm() {
-        registerPanel.style.display = "none";
-        loginPanel.style.display = "flex";
-    })
+    loginLink.addEventListener("click", redirectToLogin);
 
-    showContactBtn.addEventListener("click", moveNavToRight)
+    showContactBtn.addEventListener("click", moveNavToRight);
 
-    hideContactBtn.addEventListener("click", moveNavToLeft)
+    hideContactBtn.addEventListener("click", moveNavToLeft);
 
-    mainBox.addEventListener("click", moveNavToLeft)
+    mainBox.addEventListener("click", moveNavToLeft);
 
-    textBox.addEventListener("click", moveNavToLeft)
+    textBox.addEventListener("click", moveNavToLeft);
 
     textInput.addEventListener("submit", addMessage);
 }

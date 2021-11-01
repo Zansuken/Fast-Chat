@@ -10,6 +10,7 @@ export const hideLoginPanel = () => {
     navBtn.style.display = "flex";
     logOutBtn.style.display = "block";
     logInBtn.style.display = "none";
+    nickname.innerHTML = usernameField.value;
     textInput.focus();
 }
 
@@ -38,6 +39,24 @@ export const moveNavToLeft = () => {
 export const updateScroll = () => {
     scrollUpdating.scrollTop = scrollUpdating.scrollHeight;
 }
+
+export const redirectToLogin = () => {
+    registerPanel.style.display = "none";
+    loginPanel.style.display = "flex";
+}
+
+export const redirectToRegister = () => {
+    loginPanel.style.display = "none";
+    registerPanel.style.display = "flex";
+}
+export const usernameFocus = () => {
+    usernameField.focus();
+}
+
+export const showUserName = () => {
+}
+
+
 
 // Static chat
 
@@ -72,5 +91,4 @@ export const addMessage = (event) => {
         updateScroll();
     }
 
-    console.log(usernameField.value + " has sent a message!");
 }

@@ -1,7 +1,7 @@
 // Log into an existant user account
 
-import { passwordField, usernameField } from "./dom-references.js";
-import { hideLoginPanel, showLoginPanel } from "./interface-handlers.js";
+import { passwordField, registeringNicknameField, registerPasswordField, retypePasswordField, usernameField } from "./dom-references.js";
+import { hideLoginPanel, redirectToLogin, showLoginPanel, usernameFocus } from "./interface-handlers.js";
 
 export async function login(event) {
 
@@ -10,8 +10,6 @@ export async function login(event) {
 
     const username = usernameField.value;
     const password = passwordField.value;
-
-    console.log(username, password);
 
     const headers = new Headers();
     headers.set("Content-Type", "application/json");
@@ -28,7 +26,7 @@ export async function login(event) {
 
     if (response.status === 400) return alert("Wrong Username or Password!")
 
-    hideLoginPanel()
+    hideLoginPanel();
 
 }
 
@@ -54,9 +52,9 @@ export async function register(event) {
 
     event.preventDefault();
 
-    const username = event.target["username"].value;
-    const password = event.target["password"].value;
-    const retypedPassword = event.target["retyped-password"].value;
+    const username = registeringNicknameField.value;
+    const password = registerPasswordField.value;
+    const retypedPassword = retypePasswordField.value;
 
     if (password != retypedPassword) return alert("Password does not match!")
 
@@ -74,9 +72,11 @@ export async function register(event) {
         headers
     })
 
+
     if (response.status === 400) return alert("Username already taken!")
 
 
     alert("You are registered, you can now login and chat!")
 
+    redirectToLogin();
 }
