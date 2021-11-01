@@ -3,6 +3,7 @@ const dotenv = require("dotenv");
 const express = require("express");
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
+const { request } = require("express");
 
 
 dotenv.config({ path: ".env" });
@@ -75,6 +76,18 @@ const run = async () => {
         await database.db().collection("user").insertOne({
             username: request.body.username,
             password: request.body.password
+        })
+
+        response.sendStatus(200)
+
+    })
+
+    app.post("/chat", async (request, response) => {
+
+
+
+        await database.db().collection("chat").insertOne({
+            chatLine: request.body.chatLine
         })
 
         response.sendStatus(200)

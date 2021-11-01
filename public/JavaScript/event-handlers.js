@@ -1,6 +1,6 @@
 // Log into an existant user account
 
-import { passwordField, registeringNicknameField, registerPasswordField, retypePasswordField, usernameField } from "./dom-references.js";
+import { passwordField, registeringNicknameField, registerPasswordField, retypePasswordField, textArea, usernameField } from "./dom-references.js";
 import { hideLoginPanel, redirectToLogin, showLoginPanel, usernameFocus } from "./interface-handlers.js";
 
 export async function login(event) {
@@ -79,4 +79,27 @@ export async function register(event) {
     alert("You are registered, you can now login and chat!")
 
     redirectToLogin();
+}
+
+// Send chatInput to database
+
+export async function sendChat(event) {
+
+    event.preventDefault();
+
+    const chatLine = textArea.value;
+
+    const headers = new Headers();
+    headers.set("Content-Type", "application/json");
+
+    const response = await fetch("/chat", {
+        body: JSON.stringify({
+            chatLine
+        }),
+        method: "POST",
+        headers
+    })
+
+    if (response.status === 400) return alert("Something went wrong...")
+
 }

@@ -68,10 +68,8 @@ export const addMessage = (event) => {
 
 
         const chatLine = document.createElement("li");
-        chatLine.textContent = (document.createElement("div").style.content = userImg.style.content) + " : " + textArea.value;
+        chatLine.textContent = (nickname.innerText + " : " + textArea.value);
 
-        const chatImg = document.createElement("img");
-        chatImg.src = userImg.src;
 
         let inputTime = document.createElement("span");
         inputTime.textContent = new Date().toLocaleString({
@@ -85,7 +83,6 @@ export const addMessage = (event) => {
 
         chatFlow.appendChild(chatLine);
         chatLine.append(inputTime);
-        chatLine.append(chatImg);
         textArea.value = "";
         textArea.focus();
         updateScroll();

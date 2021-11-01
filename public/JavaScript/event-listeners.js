@@ -1,11 +1,12 @@
-import { hideContactBtn, logInBtn, loginForm, loginLink, loginPanel, logOutBtn, mainBox, nickname, registerBtn, registerLink, registerPanel, showContactBtn, textBox, textInput, usernameField } from "./dom-references.js";
-import { login, logout, register } from "./event-handlers.js";
+import { hideContactBtn, logInBtn, loginForm, loginLink, loginPanel, logOutBtn, mainBox, nickname, registerBtn, registerLink, registerPanel, sendBtn, showContactBtn, textBox, textInput, usernameField } from "./dom-references.js";
+import { login, logout, register, sendChat } from "./event-handlers.js";
 import { addMessage, moveNavToLeft, moveNavToRight, redirectToLogin, redirectToRegister, usernameFocus } from "./interface-handlers.js";
 
 export const joinListener = () => {
     loginForm.addEventListener("submit", login);
     logOutBtn.addEventListener("click", logout);
     registerBtn.addEventListener("click", register);
+    sendBtn.addEventListener("click", sendChat)
 
     nickname.addEventListener("click", usernameFocus);
 
