@@ -1,7 +1,7 @@
 // Log into an existant user account
 
-import { passwordField, registeringNicknameField, registerPasswordField, retypePasswordField, textArea, usernameField } from "./dom-references.js";
-import { hideLoginPanel, redirectToLogin, showLoginPanel, usernameFocus } from "./interface-handlers.js";
+import { nickname, passwordField, registeringNicknameField, registerPasswordField, retypePasswordField, textArea, usernameField } from "./dom-references.js";
+import { addMessage, hideLoginPanel, redirectToLogin, showLoginPanel, usernameFocus } from "./interface-handlers.js";
 
 export async function login(event) {
 
@@ -87,6 +87,7 @@ export async function sendChat(event) {
 
     event.preventDefault();
 
+    const user = nickname.textContent;
     const chatLine = textArea.value;
 
     const headers = new Headers();
@@ -94,11 +95,14 @@ export async function sendChat(event) {
 
     const response = await fetch("/chat", {
         body: JSON.stringify({
+            user,
             chatLine
         }),
         method: "POST",
         headers
     })
+
+    addMessage()
 
     if (response.status === 400) return alert("Something went wrong...")
 

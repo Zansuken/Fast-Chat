@@ -85,8 +85,8 @@ const run = async () => {
     app.post("/chat", async (request, response) => {
 
 
-
         await database.db().collection("chat").insertOne({
+            user: "",
             chatLine: request.body.chatLine
         })
 

@@ -7,6 +7,7 @@ export const joinListener = () => {
     logOutBtn.addEventListener("click", logout);
     registerBtn.addEventListener("click", register);
     sendBtn.addEventListener("click", sendChat)
+    sendBtn.addEventListener("click", addMessage)
 
     nickname.addEventListener("click", usernameFocus);
 

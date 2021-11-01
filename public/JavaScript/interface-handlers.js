@@ -62,7 +62,6 @@ export const showUserName = () => {
 
 export const addMessage = (event) => {
 
-    event.preventDefault();
 
     if (textArea.value != "") {
 
