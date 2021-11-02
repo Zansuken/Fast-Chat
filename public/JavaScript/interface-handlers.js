@@ -10,7 +10,6 @@ export const hideLoginPanel = () => {
     navBtn.style.display = "flex";
     logOutBtn.style.display = "block";
     logInBtn.style.display = "none";
-    nickname.innerHTML = usernameField.value;
     textInput.focus();
 }
 
