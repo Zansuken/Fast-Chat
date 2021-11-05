@@ -3,7 +3,7 @@ const dotenv = require("dotenv");
 const express = require("express");
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
-const { request } = require("express");
+const { request, response } = require("express");
 
 
 dotenv.config({ path: ".env" });
@@ -22,7 +22,6 @@ const run = async () => {
 
     app.use(session({
         store: MongoStore.create({
-            // mongoUrl: process.env.DATABASE_URL,
             ttl: 14 * 24 * 60 * 60,
             client: database
         }),
@@ -31,7 +30,7 @@ const run = async () => {
         resave: false,
         cookie: {
             maxAge: 14 * 24 * 60 * 60,
-            sameSite: true,
+            sameSite: true
         }
 
     }));
@@ -47,9 +46,11 @@ const run = async () => {
 
         if (!user) return response.sendStatus(400);
 
-        request.session.userId = user._id
+        delete user.password
 
-        response.sendStatus(200)
+        request.session.user = user
+
+        response.json(user)
     })
 
 
@@ -57,9 +58,9 @@ const run = async () => {
 
 
 
-        if (!request.session.userId) return response.sendStatus(400);
+        if (!request.session.user) return response.sendStatus(400);
 
-        request.session.userId = null
+        request.session.user = null
 
         response.sendStatus(200)
     })
@@ -86,17 +87,27 @@ const run = async () => {
 
 
         await database.db().collection("chat").insertOne({
-            user: "",
-            chatLine: request.body.chatLine
+            user: request.session.user,
+            chatLine: request.body.chatLine,
+            sendAt: new Date()
         })
 
         response.sendStatus(200)
 
     })
 
-    app.get("/auth/already-logged", async (request, response) => {
-        response.json(Boolean(request.session.userId))
+    app.get("/chat", async (request, response) => {
+
+        const allChat = await database.db().collection("chat").find().toArray()
+
+        response.json(allChat)
+
     })
+
+    app.get("/auth/already-logged", async (request, response) => {
+        response.json(request.session.user ?? null)
+    })
+
 
     app.use(express.static("public"))
 

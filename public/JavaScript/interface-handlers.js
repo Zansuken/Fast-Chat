@@ -69,18 +69,7 @@ export const addMessage = (event) => {
         chatLine.textContent = (nickname.innerText + " : " + textArea.value);
 
 
-        let inputTime = document.createElement("span");
-        inputTime.textContent = new Date().toLocaleString({
-            hour: "numeric",
-            minute: "numeric",
-            second: "",
-            weekday: "short",
-            day: "numeric",
-            month: "numeric",
-        });
-
         chatFlow.appendChild(chatLine);
-        chatLine.append(inputTime);
         textArea.value = "";
         textArea.focus();
         updateScroll();

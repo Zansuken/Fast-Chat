@@ -28,6 +28,10 @@ export async function login(event) {
 
     hideLoginPanel();
 
+    const user = await response.json();
+
+    nickname.textContent = user.username;
+
 }
 
 
@@ -87,7 +91,6 @@ export async function sendChat(event) {
 
     event.preventDefault();
 
-    const user = nickname.textContent;
     const chatLine = textArea.value;
 
     const headers = new Headers();
@@ -95,7 +98,6 @@ export async function sendChat(event) {
 
     const response = await fetch("/chat", {
         body: JSON.stringify({
-            user,
             chatLine
         }),
         method: "POST",
