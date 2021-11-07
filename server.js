@@ -101,7 +101,10 @@ const run = async () => {
             _id: newMessage.insertedId
         })
 
-        response.json(message)
+        const date = new Date(message.sendAt).toLocaleDateString(undefined, { year: 'numeric', month: 'numeric', day: 'numeric' })
+        const hour = new Date(message.sendAt).toLocaleTimeString(undefined, { hour: 'numeric', minute: 'numeric' })
+
+        response.json({ user: message.user?.username ?? null, chatLine: message.chatLine, sendAt: hour + ", " + date })
 
     })
 
@@ -109,14 +112,14 @@ const run = async () => {
 
         const allChat = await database.db().collection("chat").find().toArray()
 
+
         const newChatAppareance = allChat.map((chat) => {
 
             const date = new Date(chat.sendAt).toLocaleDateString(undefined, { year: 'numeric', month: 'numeric', day: 'numeric' })
             const hour = new Date(chat.sendAt).toLocaleTimeString(undefined, { hour: 'numeric', minute: 'numeric' })
 
-            return { user: chat.user?.username ?? null, sendAt: hour + ", " + date }
+            return { user: chat.user?.username ?? null, chatLine: chat.chatLine, sendAt: hour + ", " + date }
         })
-
 
         response.json(newChatAppareance.length >= 100 ? newChatAppareance.slice(0, 100) : newChatAppareance)
 

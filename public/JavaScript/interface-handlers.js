@@ -61,6 +61,7 @@ export const showUserName = () => {
 
 export const addMessage = (message) => {
 
+
     if (!message.chatLine) {
         return
     }

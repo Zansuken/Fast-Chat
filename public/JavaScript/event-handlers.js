@@ -105,7 +105,9 @@ export async function sendChat(event) {
 
     const newMessage = await response.json()
 
-    addMessage(newMessage.chatLine)
+    console.log(newMessage);
+
+    addMessage(newMessage)
 
     if (response.status === 400) return alert("Something went wrong...")
 
