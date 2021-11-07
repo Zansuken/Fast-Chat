@@ -1,4 +1,4 @@
-import { hideContactBtn, logInBtn, loginForm, loginLink, loginPanel, logOutBtn, mainBox, nickname, registerBtn, registerLink, registerPanel, sendBtn, showContactBtn, textBox, textInput, usernameField } from "./dom-references.js";
+import { hideContactBtn, logInBtn, loginForm, loginLink, logOutBtn, mainBox, nickname, registerBtn, registerLink, sendBtn, showContactBtn, textBox, textInput } from "./dom-references.js";
 import { login, logout, register, sendChat } from "./event-handlers.js";
 import { addMessage, moveNavToLeft, moveNavToRight, redirectToLogin, redirectToRegister, usernameFocus } from "./interface-handlers.js";
 

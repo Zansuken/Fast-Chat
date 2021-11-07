@@ -1,4 +1,4 @@
-import { chatFlow, contactList, contactPanel, logInBtn, loginPanel, logOutBtn, main, navBtn, nickname, passwordField, profileImg, registerPanel, scrollUpdating, showContactBtn, textArea, textInput, userImg, usernameField } from "./dom-references.js";
+import { chatFlow, contactList, contactPanel, logInBtn, loginPanel, logOutBtn, main, navBtn, nickname, passwordField, profileImg, registerPanel, scrollUpdating, showContactBtn, textInput, usernameField } from "./dom-references.js";
 
 export const hideLoginPanel = () => {
     loginPanel.style.display = "none";
@@ -80,8 +80,6 @@ export const addMessage = (message) => {
     chatLine.appendChild(messageDate)
     messageContent.appendChild(username)
     chatFlow.appendChild(chatLine)
-    updateScroll();
-
 }
 
 export const refreshChat = (messages) => {

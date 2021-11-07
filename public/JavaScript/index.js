@@ -1,6 +1,6 @@
-import { hideLoginPanel, refreshChat, showLoginPanel } from "./interface-handlers.js"
-import { joinListener } from "./event-listeners.js"
 import { nickname } from "./dom-references.js";
+import { joinListener } from "./event-listeners.js";
+import { hideLoginPanel, refreshChat, showLoginPanel, updateScroll } from "./interface-handlers.js";
 
 
 export const fetchMessages = async () => {
@@ -26,9 +26,10 @@ window.onload = async () => {
     if (response.status === 400) return alert("Oops...")
 
     if (user) {
-        fetchMessages()
+        await fetchMessages()
         setInterval(fetchMessages, 3000)
         hideLoginPanel()
+        updateScroll();
 
         nickname.textContent = user.username;
 
