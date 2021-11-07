@@ -1,6 +1,7 @@
 // Log into an existant user account
 
 import { nickname, passwordField, registeringNicknameField, registerPasswordField, retypePasswordField, textArea, usernameField } from "./dom-references.js";
+import { fetchMessages } from "./index.js";
 import { addMessage, hideLoginPanel, redirectToLogin, showLoginPanel, usernameFocus } from "./interface-handlers.js";
 
 export async function login(event) {
@@ -25,6 +26,7 @@ export async function login(event) {
 
     if (response.status === 400) return alert("Wrong Username or Password!")
 
+    fetchMessages();
     hideLoginPanel();
 
     const user = await response.json();
@@ -104,8 +106,6 @@ export async function sendChat(event) {
     })
 
     const newMessage = await response.json()
-
-    console.log(newMessage);
 
     addMessage(newMessage)
 
