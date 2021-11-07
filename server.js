@@ -100,7 +100,24 @@ const run = async () => {
 
         const allChat = await database.db().collection("chat").find().toArray()
 
-        response.json(allChat)
+
+        const newChatAppareance = allChat.map(({ ...chat }) => {
+
+            delete chat._id
+            delete chat.user._id
+
+            const date = new Date(chat.sendAt).toLocaleDateString(undefined, { weekday: 'short', year: 'numeric', month: 'long', day: 'numeric' })
+            const hour = new Date(chat.sendAt).toLocaleTimeString(undefined, { hour: 'numeric', minute: 'numeric' })
+
+            chat.sendAt = hour + ", " + date
+
+            chat.user = chat.user.username
+
+            return chat
+        })
+
+
+        response.json(newChatAppareance.length >= 20 ? newChatAppareance.slice(0, 20) : newChatAppareance)
 
     })
 
