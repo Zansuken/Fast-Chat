@@ -85,14 +85,23 @@ const run = async () => {
 
     app.post("/chat", async (request, response) => {
 
+        if (!request.session.user) return response.sendStatus(401);
 
-        await database.db().collection("chat").insertOne({
+        if (!request.body.chatLine) {
+            return response.sendStatus(400)
+        }
+
+        const newMessage = await database.db().collection("chat").insertOne({
             user: request.session.user,
             chatLine: request.body.chatLine,
             sendAt: new Date()
         })
 
-        response.sendStatus(200)
+        const message = await database.db().collection("chat").findOne({
+            _id: newMessage.insertedId
+        })
+
+        response.json(message)
 
     })
 
@@ -100,24 +109,16 @@ const run = async () => {
 
         const allChat = await database.db().collection("chat").find().toArray()
 
+        const newChatAppareance = allChat.map((chat) => {
 
-        const newChatAppareance = allChat.map(({ ...chat }) => {
-
-            delete chat._id
-            delete chat.user._id
-
-            const date = new Date(chat.sendAt).toLocaleDateString(undefined, { weekday: 'short', year: 'numeric', month: 'long', day: 'numeric' })
+            const date = new Date(chat.sendAt).toLocaleDateString(undefined, { year: 'numeric', month: 'numeric', day: 'numeric' })
             const hour = new Date(chat.sendAt).toLocaleTimeString(undefined, { hour: 'numeric', minute: 'numeric' })
 
-            chat.sendAt = hour + ", " + date
-
-            chat.user = chat.user.username
-
-            return chat
+            return { user: chat.user?.username ?? null, sendAt: hour + ", " + date }
         })
 
 
-        response.json(newChatAppareance.length >= 20 ? newChatAppareance.slice(0, 20) : newChatAppareance)
+        response.json(newChatAppareance.length >= 100 ? newChatAppareance.slice(0, 100) : newChatAppareance)
 
     })
 

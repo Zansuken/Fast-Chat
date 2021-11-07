@@ -59,20 +59,41 @@ export const showUserName = () => {
 
 // Static chat
 
-export const addMessage = (event) => {
+export const addMessage = (message) => {
 
-
-    if (textArea.value != "") {
-
-
-        const chatLine = document.createElement("li");
-        chatLine.textContent = (nickname.innerText + " : " + textArea.value);
-
-
-        chatFlow.appendChild(chatLine);
-        textArea.value = "";
-        textArea.focus();
-        updateScroll();
+    if (!message.chatLine) {
+        return
     }
+
+    const chatLine = document.createElement("li");
+    const username = document.createElement("span")
+    const messageContent = document.createElement("p")
+    const messageDate = document.createElement("p")
+
+    username.textContent = message.user
+    messageContent.textContent = " | " + message.chatLine
+    messageDate.textContent = "at " + message.sendAt
+
+
+    chatLine.appendChild(messageContent)
+    chatLine.appendChild(messageDate)
+    messageContent.appendChild(username)
+    chatFlow.appendChild(chatLine)
+    updateScroll();
+
+}
+
+export const refreshChat = (messages) => {
+
+    chatFlow.innerHTML = "";
+
+    if (Array.isArray(messages)) {
+        for (const message of messages) {
+            addMessage(message)
+        }
+    } else {
+        addMessage(messages)
+    }
+
 
 }

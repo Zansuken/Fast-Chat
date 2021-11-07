@@ -550,3 +550,31 @@ body::-webkit-scrollbar-thumb, main::-webkit-scrollbar-thumb {
     width: 0.7em;
     background-color: rgb(58, 58, 58);
 }
+
+#chat_flow li {
+    display: block;
+    gap: 1ch;
+}
+
+#chat_flow li :first-child {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+}
+
+#chat_flow li :first-child span {
+    margin: 0;
+    font-weight: 800;
+    font-size: 1em;
+    align-items: center;
+    color: black;
+}
+
+#chat_flow li :last-child {
+    font-weight: bold;
+    font-size: 0.7em;
+    color: hsl(0, 100%, 59%);
+    margin: 0;
+    display: flex;
+    justify-content: flex-end;
+}

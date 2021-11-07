@@ -1,19 +1,27 @@
-import { hideLoginPanel, showLoginPanel } from "./interface-handlers.js"
+import { hideLoginPanel, refreshChat, showLoginPanel } from "./interface-handlers.js"
 import { joinListener } from "./event-listeners.js"
 import { nickname } from "./dom-references.js";
 
 
 window.onload = async () => {
 
-    const response = await fetch("/auth/already-logged")
+    joinListener()
+
+
+    const headers = new Headers();
+    headers.set("Content-Type", "application/json");
+    const response = await fetch("/auth/already-logged", { headers, method: "GET" })
+    const responseChat = await fetch("/chat", { headers, method: "GET" })
+    const user = await response.json();
 
     if (response.status === 400) return alert("Oops...")
 
-    const user = await response.json();
     if (user) {
 
-        hideLoginPanel()
+        const chatMessages = await responseChat.json()
 
+        hideLoginPanel()
+        refreshChat(chatMessages)
 
         nickname.textContent = user.username;
 
@@ -21,5 +29,6 @@ window.onload = async () => {
         showLoginPanel()
     }
 
-    joinListener()
+
+
 }

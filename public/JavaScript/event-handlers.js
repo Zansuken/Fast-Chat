@@ -7,7 +7,6 @@ export async function login(event) {
 
     event.preventDefault();
 
-
     const username = usernameField.value;
     const password = passwordField.value;
 
@@ -104,7 +103,9 @@ export async function sendChat(event) {
         headers
     })
 
-    addMessage()
+    const newMessage = await response.json()
+
+    addMessage(newMessage.chatLine)
 
     if (response.status === 400) return alert("Something went wrong...")
 
