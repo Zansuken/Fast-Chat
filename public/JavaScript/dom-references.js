@@ -2,7 +2,6 @@ export const loginPanel = document.getElementById("login_section");
 export const registerPanel = document.getElementById("register_section");
 export const registerLink = document.querySelector("#unregistered");
 export const loginLink = document.querySelector("#login_link");
-export const logOutBtn = document.querySelector("#log_out_button");
 export const loginForm = document.querySelector("#login_form");
 export const registerForm = document.querySelector("#register_form");
 export const chatInput = document.querySelector("#text_input_area");
@@ -13,7 +12,9 @@ export const passwordField = document.querySelector("#password_field");
 export const connectBtn = document.querySelector("#connect_button");
 export const userImg = document.querySelector("#profile_img");
 export const navBtn = document.querySelector("#nav_btn");
-export const logInBtn = document.querySelector("#log_in_button");
+export const logInBtn = document.createElement("input");
+export const logOutBtn = document.createElement("input");
+export const linkToLog = document.createElement("span");
 
 
 export const registeringNicknameField = document.querySelector("#register_username_field");

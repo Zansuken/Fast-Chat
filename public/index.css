@@ -349,7 +349,6 @@ main ul img {
     background-size: cover;
     filter: invert(100%);
     cursor: pointer;
-    margin-left: 1em;
 }
 
 #log_in_button {
@@ -363,7 +362,6 @@ main ul img {
     background-size: cover;
     filter: invert(100%);
     cursor: pointer;
-    margin-left: 1em;
 }
 
 #profile_section input:hover, #log_in_button:hover, .profile_section span:hover, .profile_section input:hover {

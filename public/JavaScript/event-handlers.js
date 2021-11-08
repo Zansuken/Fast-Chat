@@ -2,7 +2,7 @@
 
 import { passwordField, registeringNicknameField, registerPasswordField, retypePasswordField, textArea, usernameField } from "./dom-references.js";
 import { fetchMessages } from "./index.js";
-import { addMessage, hideLoginPanel, redirectToLogin, showLoginPanel, showUserName, updateScroll } from "./interface-handlers.js";
+import { addMessage, hideLoginPanel, hideUsername, redirectToLogin, showLoginPanel, showUserName, updateScroll } from "./interface-handlers.js";
 
 export async function login(event) {
 
@@ -48,6 +48,7 @@ export async function logout() {
     if (response.status === 400) return alert("Already disconnected!")
 
     showLoginPanel()
+    hideUsername()
 
 }
 

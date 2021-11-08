@@ -1,4 +1,4 @@
-import { chatFlow, contactList, contactPanel, logInBtn, loginPanel, logOutBtn, main, navBtn, passwordField, profileSection, registerPanel, scrollUpdating, showContactBtn, textInput, userImg, usernameField } from "./dom-references.js";
+import { chatFlow, contactList, contactPanel, linkToLog, logInBtn, loginPanel, logOutBtn, main, navBtn, passwordField, profileSection, registerPanel, scrollUpdating, showContactBtn, textInput, userImg, usernameField } from "./dom-references.js";
 
 export const hideLoginPanel = () => {
     loginPanel.style.display = "none";
@@ -8,7 +8,6 @@ export const hideLoginPanel = () => {
     passwordField.value = "";
     userImg.style.display = "block";
     navBtn.style.display = "flex";
-    logOutBtn.style.display = "block";
     logInBtn.style.display = "none";
     textInput.focus();
 }
@@ -19,7 +18,6 @@ export const showLoginPanel = () => {
     contactList.style.display = "none";
     userImg.style.display = "none";
     navBtn.style.display = "none";
-    logOutBtn.style.display = "none";
     logInBtn.style.display = "block";
     usernameField.focus();
 }
@@ -52,24 +50,41 @@ export const usernameFocus = () => {
 }
 
 export const showUserName = () => {
+
+    while (profileSection.hasChildNodes()) {
+        profileSection.removeChild(profileSection.firstChild);
+    }
+
     const username = document.createElement("span");
+
+
+    logOutBtn.type = "button";
 
     username.textContent = usernameField.value;
 
 
-
     profileSection.appendChild(username);
+    profileSection.appendChild(logOutBtn);
 
 }
 
-// export const redirectToUserPage = () => {
-//     window.location.href = "/user-profile.html"
-// }
+export const hideUsername = () => {
+    while (profileSection.hasChildNodes()) {
+        profileSection.removeChild(profileSection.firstChild);
+    }
 
-// export const redirectToGlobalChat = () => {
-//     window.location.href = "/index.html"
-// }
 
+
+    // linkToLog
+
+    logInBtn.type = "button";
+
+    logInBtn.id = "log_in_button"
+
+
+    profileSection.appendChild(linkToLog.innerText = "Log In");
+    profileSection.appendChild(logInBtn);
+}
 
 // Static chat
 

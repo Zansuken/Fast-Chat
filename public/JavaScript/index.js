@@ -1,5 +1,5 @@
 import { joinListener } from "./event-listeners.js";
-import { hideLoginPanel, refreshChat, showLoginPanel, updateScroll } from "./interface-handlers.js";
+import { hideLoginPanel, hideUsername, refreshChat, showLoginPanel, showUserName, updateScroll } from "./interface-handlers.js";
 
 
 export const fetchMessages = async () => {
@@ -28,9 +28,11 @@ window.onload = async () => {
         await fetchMessages()
         setInterval(fetchMessages, 3000)
         hideLoginPanel()
+        showUserName();
         updateScroll();
 
     } else {
         showLoginPanel()
+        hideUsername()
     }
 }
