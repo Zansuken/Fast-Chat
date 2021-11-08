@@ -1,4 +1,4 @@
-import { hideContactBtn, logInBtn, loginForm, loginLink, logOutBtn, mainBox, nickname, registerBtn, registerLink, sendBtn, showContactBtn, textBox, textInput } from "./dom-references.js";
+import { hideContactBtn, logInBtn, loginForm, loginLink, logOutBtn, mainBox, registerBtn, registerLink, sendBtn, showContactBtn, textBox, textInput } from "./dom-references.js";
 import { login, logout, register, sendChat } from "./event-handlers.js";
 import { addMessage, moveNavToLeft, moveNavToRight, redirectToLogin, redirectToRegister, usernameFocus } from "./interface-handlers.js";
 
@@ -8,8 +8,6 @@ export const joinListener = () => {
     registerBtn.addEventListener("click", register);
     sendBtn.addEventListener("click", sendChat)
     sendBtn.addEventListener("click", addMessage)
-
-    nickname.addEventListener("click", usernameFocus);
 
     logInBtn.addEventListener("click", usernameFocus);
 

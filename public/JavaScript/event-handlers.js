@@ -1,8 +1,8 @@
 // Log into an existant user account
 
-import { nickname, passwordField, registeringNicknameField, registerPasswordField, retypePasswordField, textArea, usernameField } from "./dom-references.js";
+import { passwordField, registeringNicknameField, registerPasswordField, retypePasswordField, textArea, usernameField } from "./dom-references.js";
 import { fetchMessages } from "./index.js";
-import { addMessage, hideLoginPanel, redirectToLogin, showLoginPanel, updateScroll } from "./interface-handlers.js";
+import { addMessage, hideLoginPanel, redirectToLogin, showLoginPanel, showUserName, updateScroll } from "./interface-handlers.js";
 
 export async function login(event) {
 
@@ -28,12 +28,11 @@ export async function login(event) {
 
     await fetchMessages();
     hideLoginPanel();
+    showUserName();
     updateScroll();
 
 
     const user = await response.json();
-
-    nickname.textContent = user.username;
 
 }
 

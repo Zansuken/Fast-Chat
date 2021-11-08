@@ -1,4 +1,4 @@
-import { chatFlow, contactList, contactPanel, logInBtn, loginPanel, logOutBtn, main, navBtn, nickname, passwordField, profileImg, registerPanel, scrollUpdating, showContactBtn, textInput, usernameField } from "./dom-references.js";
+import { chatFlow, contactList, contactPanel, logInBtn, loginPanel, logOutBtn, main, navBtn, passwordField, profileSection, registerPanel, scrollUpdating, showContactBtn, textInput, userImg, usernameField } from "./dom-references.js";
 
 export const hideLoginPanel = () => {
     loginPanel.style.display = "none";
@@ -6,7 +6,7 @@ export const hideLoginPanel = () => {
     main.style.display = "flex";
     contactList.style.display = "block";
     passwordField.value = "";
-    profileImg.style.display = "block";
+    userImg.style.display = "block";
     navBtn.style.display = "flex";
     logOutBtn.style.display = "block";
     logInBtn.style.display = "none";
@@ -17,8 +17,7 @@ export const showLoginPanel = () => {
     loginPanel.style.display = "block";
     main.style.display = "none";
     contactList.style.display = "none";
-    nickname.innerHTML = "LOG IN";
-    profileImg.style.display = "none";
+    userImg.style.display = "none";
     navBtn.style.display = "none";
     logOutBtn.style.display = "none";
     logInBtn.style.display = "block";
@@ -53,8 +52,23 @@ export const usernameFocus = () => {
 }
 
 export const showUserName = () => {
+    const username = document.createElement("span");
+
+    username.textContent = usernameField.value;
+
+
+
+    profileSection.appendChild(username);
+
 }
 
+// export const redirectToUserPage = () => {
+//     window.location.href = "/user-profile.html"
+// }
+
+// export const redirectToGlobalChat = () => {
+//     window.location.href = "/index.html"
+// }
 
 
 // Static chat

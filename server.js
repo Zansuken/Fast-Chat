@@ -12,7 +12,7 @@ dotenv.config({ path: ".env" });
 const database = new MongoClient(process.env.DATABASE_URL);
 
 const apiLimiter = rateLimit({
-    windowMs: 15 * 60 * 1000, // 15 minutes
+    windowMs: 2 * 60 * 1000, // 2 minutes
     max: 100
 });
 

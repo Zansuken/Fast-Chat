@@ -1,4 +1,3 @@
-import { nickname } from "./dom-references.js";
 import { joinListener } from "./event-listeners.js";
 import { hideLoginPanel, refreshChat, showLoginPanel, updateScroll } from "./interface-handlers.js";
 
@@ -30,8 +29,6 @@ window.onload = async () => {
         setInterval(fetchMessages, 3000)
         hideLoginPanel()
         updateScroll();
-
-        nickname.textContent = user.username;
 
     } else {
         showLoginPanel()
