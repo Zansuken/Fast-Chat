@@ -4,15 +4,23 @@ const express = require("express");
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
 const { request, response } = require("express");
+const rateLimit = require("express-rate-limit");
 
 
 dotenv.config({ path: ".env" });
 
 const database = new MongoClient(process.env.DATABASE_URL);
 
+const apiLimiter = rateLimit({
+    windowMs: 15 * 60 * 1000, // 15 minutes
+    max: 100
+});
+
 const app = express();
 
 app.set('trust proxy', 1)
+
+app.use("/", apiLimiter)
 
 const run = async () => {
 
