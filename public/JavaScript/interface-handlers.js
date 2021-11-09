@@ -32,9 +32,14 @@ export const moveNavToLeft = () => {
     showContactBtn.style.opacity = "1";
 }
 
+export const stopAutoScroll = () => {
+    console.log("trying to stop scrolling");
+}
+
+
 export const updateScroll = () => {
+
     chatFlow.scrollTop = chatFlow.scrollHeight;
-    console.log(chatFlow.scrollHeight);
 }
 
 export const redirectToLogin = () => {
