@@ -10,6 +10,7 @@ export const fetchMessages = async () => {
     const chatMessages = await responseChat.json()
 
     refreshChat(chatMessages)
+    updateScroll();
 }
 
 window.onload = async () => {

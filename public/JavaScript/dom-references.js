@@ -25,7 +25,6 @@ export const registerBtn = document.querySelector("#register_button");
 export const sendBtn = document.querySelector("#send_button");
 export const textArea = document.querySelector("#text_input");
 export const chatFlow = document.querySelector("#chat_flow");
-export const scrollUpdating = document.querySelector("#main");
 export const textInput = document.querySelector("#text_input_area");
 
 export const showContactBtn = document.getElementById("nav_btn");

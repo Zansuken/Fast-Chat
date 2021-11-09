@@ -1,4 +1,4 @@
-import { chatFlow, contactList, contactPanel, linkToLog, logInBtn, loginPanel, logOutBtn, main, navBtn, passwordField, profileSection, registerPanel, scrollUpdating, showContactBtn, textInput, userImg, usernameField } from "./dom-references.js";
+import { chatFlow, contactList, contactPanel, linkToLog, logInBtn, loginPanel, logOutBtn, main, navBtn, passwordField, profileSection, registerPanel, showContactBtn, textInput, userImg, usernameField } from "./dom-references.js";
 
 export const hideLoginPanel = () => {
     loginPanel.style.display = "none";
@@ -33,7 +33,8 @@ export const moveNavToLeft = () => {
 }
 
 export const updateScroll = () => {
-    scrollUpdating.scrollTop = scrollUpdating.scrollHeight;
+    chatFlow.scrollTop = chatFlow.scrollHeight;
+    console.log(chatFlow.scrollHeight);
 }
 
 export const redirectToLogin = () => {
@@ -81,8 +82,10 @@ export const hideUsername = () => {
 
     logInBtn.id = "log_in_button"
 
+    linkToLog.innerText = "Log In"
 
-    profileSection.appendChild(linkToLog.innerText = "Log In");
+
+    profileSection.appendChild(linkToLog);
     profileSection.appendChild(logInBtn);
 }
 
