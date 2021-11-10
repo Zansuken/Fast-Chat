@@ -6,7 +6,6 @@ export const hideLoginPanel = () => {
     main.style.display = "flex";
     contactList.style.display = "block";
     passwordField.value = "";
-    userImg.style.display = "block";
     navBtn.style.display = "flex";
     logInBtn.style.display = "none";
     textInput.focus();
@@ -16,7 +15,6 @@ export const showLoginPanel = () => {
     loginPanel.style.display = "block";
     main.style.display = "none";
     contactList.style.display = "none";
-    userImg.style.display = "none";
     navBtn.style.display = "none";
     logInBtn.style.display = "block";
     usernameField.focus();
@@ -62,13 +60,16 @@ export const showUserName = () => {
     }
 
     const username = document.createElement("span");
-
+    userImg.id = "profile_img"
+    const userPicture = userImg
 
     logOutBtn.type = "button";
 
     username.textContent = usernameField.value;
 
 
+
+    profileSection.appendChild(userPicture);
     profileSection.appendChild(username);
     profileSection.appendChild(logOutBtn);
 
@@ -103,20 +104,24 @@ export const addMessage = (message) => {
         return
     }
 
-    const chatLine = document.createElement("li");
+    const chatLine = document.createElement("li")
+    const userDiv = document.createElement("div")
     const username = document.createElement("span")
     const messageContent = document.createElement("p")
     const messageDate = document.createElement("p")
 
+
     username.textContent = message.user
-    messageContent.textContent = " | " + message.chatLine
+    messageContent.textContent = message.chatLine
     messageDate.textContent = "at " + message.sendAt
 
 
-    chatLine.appendChild(messageContent)
-    chatLine.appendChild(messageDate)
-    messageContent.appendChild(username)
     chatFlow.appendChild(chatLine)
+
+    chatLine.appendChild(userDiv)
+    chatLine.appendChild(messageDate)
+    userDiv.appendChild(messageContent)
+    userDiv.appendChild(username)
 }
 
 export const refreshChat = (messages) => {

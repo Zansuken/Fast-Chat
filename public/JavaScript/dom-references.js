@@ -10,11 +10,11 @@ export const contactList = document.querySelector("#contact_list");
 export const usernameField = document.querySelector("#username_field");
 export const passwordField = document.querySelector("#password_field");
 export const connectBtn = document.querySelector("#connect_button");
-export const userImg = document.querySelector("#profile_img");
 export const navBtn = document.querySelector("#nav_btn");
 export const logInBtn = document.createElement("input");
 export const logOutBtn = document.createElement("input");
 export const linkToLog = document.createElement("span");
+export const userImg = document.createElement("img");
 
 
 export const registeringNicknameField = document.querySelector("#register_username_field");
