@@ -1,0 +1,54 @@
+#chat_flow {
+    position: relative;
+    overflow-y: scroll;
+    height: min-content;
+    padding-bottom: 4em;
+    max-width: fit-content;
+}
+
+#chat_flow li {
+    display: block;
+    gap: 1ch;
+    margin-right: 2em;
+    overflow-x: hidden;
+    min-width: 15em;
+}
+
+#chat_flow li :first-child {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+}
+
+#chat_flow li :first-child span {
+    margin: 0 1em 0 0;
+    padding: 0 1em 0 0;
+    font-weight: 800;
+    font-size: 1em;
+    align-items: baseline;
+    color: black;
+    border-right: solid 1px #FF1010;
+}
+
+#chat_flow li :last-child {
+    font-weight: bold;
+    font-size: 0.7em;
+    color: hsl(0, 100%, 59%);
+    margin: 0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+body::-webkit-scrollbar, #chat_flow::-webkit-scrollbar {
+    width: 0.7em;
+    background-color: black;
+}
+
+body::-webkit-scrollbar-track-piece, #chat_flow::-webkit-scrollbar-track-piece {
+    height: 15vh;
+}
+
+body::-webkit-scrollbar-thumb, #chat_flow::-webkit-scrollbar-thumb {
+    width: 0.7em;
+    background-color: rgb(58, 58, 58);
+}
