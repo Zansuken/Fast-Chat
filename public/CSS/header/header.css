@@ -17,7 +17,8 @@ header img {
     cursor: pointer;
 }
 
-.profile_section, #profile_section {
+.profile_section,
+#profile_section {
     display: flex;
     justify-content: space-around;
     height: fit-content;
@@ -39,7 +40,8 @@ header img {
     font-size: 1em;
 }
 
-#profile_img, main ul img {
+#profile_img,
+main ul img {
     width: 3em;
     height: 3em;
     border-radius: 50%;
@@ -48,14 +50,17 @@ header img {
 
 #profile_img {
     margin-left: 0;
-    content: url(./Images/default-picture.jpg);
+    content: url(../../Images/default-picture.jpg);
 }
 
-#profile_section input:hover, .profile_section span:hover, .profile_section input:hover {
+#profile_section input:hover,
+.profile_section span:hover,
+.profile_section input:hover {
     filter: invert(44%) sepia(87%) saturate(7143%) hue-rotate(350deg) brightness(96%) contrast(111%);
 }
 
-#profile_img:hover, #profile_img:focus {
+#profile_img:hover,
+#profile_img:focus {
     border: 4px solid #FF1010;
 }
 

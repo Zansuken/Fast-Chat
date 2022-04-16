@@ -1,12 +1,12 @@
 main {
     max-width: 50vw;
-    height: 80vh;
+    height: calc(80vh - 185px);
     display: flex;
     flex-direction: column;
-    position: static;
-    top: 15vh;
+    /* position: static; */
+    top: 20vh;
     margin: 20vh auto 0 auto;
-    padding: 2em;
+    padding: 2em 2em 0 2em;
     border: 1px solid white;
     border-radius: 0.5em;
     border-top-right-radius: 0px;

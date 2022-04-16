@@ -31,7 +31,7 @@ export const moveNavToLeft = () => {
 }
 
 export const stopAutoScroll = () => {
-    console.log("trying to stop scrolling");
+    // console.log("trying to stop scrolling");
 }
 
 
