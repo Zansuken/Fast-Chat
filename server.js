@@ -20,7 +20,7 @@ const app = express();
 
 app.set('trust proxy', 1)
 
-app.use("/chat", apiLimiter)
+// app.use("/chat", apiLimiter)
 
 const run = async () => {
 

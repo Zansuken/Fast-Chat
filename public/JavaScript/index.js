@@ -27,7 +27,7 @@ window.onload = async () => {
 
     if (user) {
         await fetchMessages()
-        setInterval(fetchMessages, 3000)
+        setInterval(fetchMessages, 1000)
         hideLoginPanel()
         showUserName();
         updateScroll();

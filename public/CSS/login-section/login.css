@@ -1,0 +1,77 @@
+#login_section {
+    position: fixed;
+    background: black;
+    width: 30vw;
+    min-width: 300px;
+    height: min-content;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    border-radius: 1em;
+    border: 2px solid white;
+    z-index: 20;
+    align-items: center;
+    padding-bottom: 1em;
+}
+
+#login_section h1 {
+    margin-top: 0;
+}
+
+#login_section form {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+#login_section input {
+    appearance: none;
+    background-color: rgba(58, 58, 58, 0.788);
+    border: 1px solid white;
+    border-radius: 1em;
+    color: white;
+    font-size: 0.8em;
+    font-weight: normal;
+    font-family: 'Open Sans', sans-serif;
+    margin-bottom: 1em;
+    height: 2em;
+    padding-left: 1em;
+}
+
+#login_section input:focus {
+    border: 2px solid #FF1010;
+    outline: none;
+}
+
+#login_section #connect_button {
+    background: #FF1010;
+    color: black;
+    border: none;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1em;
+    font-weight: 800;
+    cursor: pointer;
+    width: min-content;
+    text-align: left;
+    padding: 0 0.5em;
+}
+
+#connect_button:hover, #connect_button:focus {
+    box-shadow: inset 0px 0px 2px 3px rgba(0,0,0,0.69);
+}
+
+#login_section span, #login_link {
+    font-size: 0.8em;
+    font-weight: bold;
+    text-decoration: underline white;
+    cursor: pointer;
+}
+
+#unregistered:hover, #login_link:hover {
+    color: #FF1010;
+    text-decoration: underline #FF1010;
+    transition: 00.3s ease;
+}

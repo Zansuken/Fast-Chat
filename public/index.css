@@ -3,13 +3,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 /* Call with: font-family: 'Open Sans', sans-serif; */
 
-/* Global positioning */
+/* Header */
 
+@import url(CSS/header/header.css);
+
+/* Login section */
+
+@import url(CSS/login-section/login.css);
+
+/* Register section */
+
+@import url(CSS/register-section/register.css);
+
+/* Contact panel */
+
+@import url(CSS/contact-panel/contact-panel.css);
+
+/* Main */
+
+@import url(CSS/main/main-global.css);
+@import url(CSS/main/chat-flow.css);
+@import url(CSS/main/chat-inputs.css);
+
+/* Global positioning */
 
 body {
     margin: 0;
     padding: 0;
-    height: 100vh;
     background-color: rgba(12, 12, 12, 0.863);
     color: white;
     font-family: 'Open Sans', sans-serif;
@@ -21,134 +41,12 @@ body {
     overflow-y: hidden;
 }
 
-header {
-    width: 100%;
-    height: 15vh;
-    position: fixed;
-    top: 0;
-    z-index: 10;
-    /* border: 3px inset red; */
-}
-
-#nav_btn {
-    border: 2px solid white;
-    display: none;
-    justify-content: space-around;
-    position: fixed;
-    align-items: center;
-    width: 8vw;
-    min-width: max-content;
-    height: 3em;
-    border-radius: 1em;
-    border-bottom-right-radius: 0;
-    bottom: 1.3em;
-    left: 1em;
-    background-color: black;
-    cursor: pointer;
-    transition: ease 0.7s;
-    z-index: 10;
-    padding-bottom: 0.1em;
-}
-
-#nav_btn img {
-    filter: invert(100%);
-    z-index: 2;
-}
-
-#nav_btn img:hover {
-    filter: invert(44%) sepia(87%) saturate(7143%) hue-rotate(350deg) brightness(96%) contrast(111%);
-    transition: 00.7s ease;
-}
-
-#nav_btn--close h1, #nav_btn h1 {
-    display: block;
-    bottom: 0.1em;
-    font-size: 1.5em;
-    transition: ease 0.3s;
-    z-index: 2;
-}
-
-#nav_btn h1 {
-    margin: 0;
-}
-
-#nav_btn .corner_img {
-    position: absolute;
-    right: 4px;
-}
-
-#nav_btn:hover, #nav_btn--close:hover {
-    border: 2px solid #FF1010;
-}
-
-nav {
-    min-width: 18vw;
-    height: 100vh;
-    /* border: 3px inset red; */
-    position: fixed;
-    top: 16vh;
-    transition: ease 0.7s;
-    transform: translateX(-150%);
-    z-index: 10;
-}
-
-.nav_border {
-    width: 100%;
-    height: 85%;
-    background-image: linear-gradient(to bottom right, #FF1010, #5AFD3E);
-    z-index: 9;
-    position: absolute;
-    padding-right: 1.25em;
-    padding-left: 1em;
-    border-top-right-radius: 1em;
-}
-
-.nav_content {
-    width: 100%;
-    height: 65%;
-    background-color: black;
-    z-index: 9;
-    position: absolute;
-    margin: 2px;
-    padding-right: 1em;
-    padding-left: 1em;
-    padding-top: 1em;
-    padding-bottom: 12em;
-    border-top-right-radius: 1em;
-}
-
-#nav_btn--close {
-    border: 2px solid white;
-    position: relative;
-    width: 18vw;
-    min-width: 90%;
-    height: 3em;
-    border-radius: 1em;
-    border-bottom-right-radius: 0;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin-bottom: 1.5em;
-    margin-left: auto;
-    margin-right: auto;
-    transition: ease 0.7s;
-    background: black;
-}
-
-nav h1 {
-    position: relative;
-    display: block;
-}
-
 .corner_img {
     width: 2.2em;
     height: 2.2em;
     content: url(./Images/background_corners.png);
-    position: absolute;
     display: block;
     bottom: 4px;
-    right: 4px;
     z-index: 1;
 }
 
@@ -162,110 +60,6 @@ nav h1 {
     z-index: 10;
 }
 
-/* Login and register design */
-
-#login_section, #register_section {
-    display: flex;
-    position: fixed;
-    background: black;
-    width: 30vw;
-    min-width: 300px;
-    height: min-content;
-    transform: translate(-50%, -50%);
-    left: 50%;
-    top: 50%;
-    border-radius: 1em;
-    border: 2px solid white;
-    z-index: 20;
-    align-items: center;
-    padding-bottom: 1em;
-}
-
-#login_section h1, #register_section h1 {
-    margin-top: 0;
-}
-
-#register_section {
-    display: none;
-}
-
-#login_section form, #register_section form {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-}
-
-#login_section input, #register_section input {
-    appearance: none;
-    border: none;
-    background-color: rgba(58, 58, 58, 0.788);
-    border: 1px solid white;
-    border-radius: 1em;
-    color: white;
-    font-size: 0.8em;
-    font-weight: normal;
-    font-family: 'Open Sans', sans-serif;
-    margin-bottom: 1em;
-    height: 2em;
-    padding-left: 1em;
-}
-
-#login_section input:focus, #register_section input:focus {
-    border: 2px solid #FF1010;
-    outline: none;
-}
-
-#login_section #connect_button, #register_section #register_button {
-    background: #FF1010;
-    color: black;
-    border: none;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 1em;
-    font-weight: 800;
-    cursor: pointer;
-    width: min-content;
-    text-align: left;
-    padding: 0 0.5em;
-}
-
-#connect_button:hover, #connect_button:focus {
-    box-shadow: inset 0px 0px 2px 3px rgba(0,0,0,0.69);
-}
-
-#login_section span, #login_link {
-    font-size: 0.8em;
-    font-weight: bold;
-    text-decoration: underline white;
-    cursor: pointer;
-}
-
-#unregistered:hover, #login_link:hover {
-    color: #FF1010;
-    text-decoration: underline #FF1010;
-    transition: 00.3s ease;
-}
-
-main {
-    max-width: 50vw;
-    height: 80vh;
-    /* border: 3px inset red; */
-    position: static;
-    top: 15vh;
-    margin: 20vh auto 0 auto;
-    border: 1px solid white;
-    border-radius: 0.5em;
-    border-top-right-radius: 0px;
-    transition: ease 0.7s;
-    box-shadow: 0px 0px 15px 0px #000000;
-    background: #2D2D2D;
-}
-
-#main {
-    display: none;
-}
 
 li {
     list-style: none;
@@ -275,293 +69,4 @@ ul {
     margin: 0;
     padding: 0;
     overflow-y: hidden;
-}
-
-/* Header */
-
-header {
-    display: flex;
-    justify-content: space-between;
-    background-color: #2D2D2D;
-    align-items: center;
-    box-shadow: 0px 0px 15px 0px #000000;
-}
-
-header img {
-    height: 15vh;
-    margin-left: 1.5em;
-    cursor: pointer;
-}
-
-.profile_section, #profile_section {
-    display: flex;
-    justify-content: space-around;
-    height: fit-content;
-    max-width: fit-content;
-    min-width: 185px;
-    align-items: center;
-    margin-right: 1.5em;
-    border-radius: 1em;
-    border: 2px solid white;
-    background-color: black;
-    transition: ease 0.7s;
-    padding: 0.4em;
-    cursor: pointer;
-}
-
-.profile_section span {
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 1em;
-}
-
-#profile_img, main ul img {
-    width: 3em;
-    height: 3em;
-    border-radius: 50%;
-    cursor: pointer;
-}
-
-#profile_img {
-    margin-left: 0;
-}
-
-
-main ul img {
-    margin-right: 0.5em;
-    order: -1;
-    align-self: baseline;
-}
-
-#profile_img:hover, #profile_img:focus {
-    border: 4px solid #FF1010;
-}
-
-.profile_section input {
-    width: 1.8em;
-    height: 1.8em;
-    appearance: none;
-    border: none;
-    background-color: transparent;
-    background-image: url(./Images/exit.svg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    filter: invert(100%);
-    cursor: pointer;
-}
-
-#log_in_button {
-    width: 1.8em;
-    height: 1.8em;
-    appearance: none;
-    border: none;
-    background-color: transparent;
-    background-image: url(./Images/switch.svg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    filter: invert(100%);
-    cursor: pointer;
-}
-
-#profile_section input:hover, #log_in_button:hover, .profile_section span:hover, .profile_section input:hover {
-    filter: invert(44%) sepia(87%) saturate(7143%) hue-rotate(350deg) brightness(96%) contrast(111%);
-}
-
-main {
-    padding: 2em;
-    display: flex;
-    flex-direction: column;
-}
-
-main li {
-    background-color: rgba(58, 58, 58, 0.788);
-    margin-bottom: 1em;
-    padding: 0.5em 0.8em;
-    border-radius: 1em;
-    max-width: max-content;
-    min-height: min-content;
-    word-wrap: normal;
-    word-break: break-all;
-    transition: ease 0.3s;
-    display: flex;
-    align-items: center;
-    max-inline-size: max-content;
-}
-
-main span {
-    font-size: 0.55em;
-    color: #FF1010;
-    position: relative;
-    margin-bottom: 4em;
-    margin-left: 1em;
-    min-width: fit-content;
-}
-
-
-.chat_input {
-    display: flex;
-    justify-content: space-between;
-    position: relative;
-    min-width: 50%;
-    max-width: 75%;
-    bottom: 1em;
-    background-color: black;
-    border-radius: 1em;
-    padding: 0.2em;
-    align-items: center;
-    border: 2px solid white;
-
-}
-
-#text_input {
-    width: 100%;
-    height: 100%;
-    background-color: rgba(58, 58, 58, 0.788);
-    border-radius: 1em;
-    color: white;
-    font-size: 0.8em;
-    font-weight: normal;
-    font-family: 'Open Sans', sans-serif;
-    margin: 0;
-    padding: 0;
-    word-wrap: break-word;
-    word-break: break-all;
-    border: none;
-    resize: none;
-    text-transform: none;
-}
-
-#text_input_area {
-    width: 80%;
-    height: 10vh;
-    background-color: rgba(58, 58, 58, 0.788);
-    border-radius: 1em;
-    font-size: 0.8em;
-    font-weight: normal;
-    font-family: 'Open Sans', sans-serif;
-    margin-left: 5px;
-    overflow-wrap: break-word;
-    border: none;
-    resize: none;
-}
-
-#text_input:focus, #text_input:focus-visible {
-    border: 2px solid #FF1010;
-    outline: none;
-}
-
-.chat_input input {
-    width: 15%;
-    min-width: fit-content;
-    height: 10vh;
-    border-radius: 1em;
-    border: none;
-    background-color: #FF1010;
-    color: black;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 1.2em;
-    font-weight: 800;
-    margin: 0.5em;
-    cursor: text;
-    text-transform: uppercase;
-}
-
-#send_button {
-    cursor: pointer;
-}
-
-.chat_input input:hover {
-    box-shadow: inset 0px 0px 2px 3px rgba(0,0,0,0.69);
-}
-
-nav li {
-    display: flex;
-    align-items: center;
-    width: 90%;
-    margin: 0 auto 1em auto;
-    padding: 0.3em 0.6em;
-    font-size: 0.9em;
-    background-color: rgb(58, 58, 58);
-    border-radius: 1em;
-    cursor: pointer;
-}
-
-nav ul div {
-    width: 3em;
-    height: 3em;
-    border-radius: 50%;
-}
-
-#contact_img1, #contact_img2, #contact_img3, #contact_img4, #contact_img5 {
-    margin-right: 0.5em;
-}
-
-#contact_img1 {
-    content: url(./Images/random-avatar/avatar1.jfif);
-}
-
-#contact_img2 {
-    content: url(./Images/random-avatar/avatar2.jfif);
-}
-
-#contact_img3 {
-    content: url(./Images/random-avatar/avatar3.jfif);
-}
-
-#contact_img4 {
-    content: url(./Images/random-avatar/avatar4.jfif);
-}
-
-#contact_img5 {
-    content: url(./Images/random-avatar/avatar5.jfif);
-}
-
-body::-webkit-scrollbar, #chat_flow::-webkit-scrollbar {
-    width: 0.7em;
-    background-color: black;
-}
-
-body::-webkit-scrollbar-track-piece, #chat_flow::-webkit-scrollbar-track-piece {
-    height: 15vh;
-}
-
-body::-webkit-scrollbar-thumb, #chat_flow::-webkit-scrollbar-thumb {
-    width: 0.7em;
-    background-color: rgb(58, 58, 58);
-}
-
-#chat_flow {
-    position: relative;
-    overflow-y: scroll;
-    height: min-content;
-    padding-bottom: 1em;
-    max-width: fit-content;
-}
-
-#chat_flow li {
-    display: block;
-    gap: 1ch;
-}
-
-#chat_flow li :first-child {
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: flex-end;
-}
-
-#chat_flow li :first-child span {
-    margin: 0;
-    font-weight: 800;
-    font-size: 1em;
-    align-items: center;
-    color: black;
-}
-
-#chat_flow li :last-child {
-    font-weight: bold;
-    font-size: 0.7em;
-    color: hsl(0, 100%, 59%);
-    margin: 0;
-    display: flex;
-    justify-content: flex-end;
 }
